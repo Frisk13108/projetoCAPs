@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  Hello World!
+ <p> Bem vindo a nossa livraria! Fique a vontade para explorar os diversos romances aqui disponíveis. Agradecemos a preferência (=</p>
 </template>
 
 <style scoped>
