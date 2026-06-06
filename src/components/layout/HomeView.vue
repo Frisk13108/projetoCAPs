@@ -3,9 +3,25 @@
 </script>
 
 <template>
- <p> Bem vindo a nossa livraria! Fique a vontade para explorar os diversos romances aqui disponíveis. Agradecemos a preferência (=</p>
+    <div class="padrao">
+        <h1>Olá!</h1>
+       <p> Bem vindo a nossa livraria! Fique a vontade para explorar os diversos romances aqui disponíveis. Agradecemos a preferência (=</p> 
+    </div>
+ 
 </template>
 
 <style scoped>
+h1{
+    color: rgb(200, 8, 229);
+    font-weight: bold;
+}
+p{
+    color: rgb(0, 0, 0);
+}
+div.padrao{
+background-color: rgb(255, 255, 255);
+padding: 4vw 4vw 4vw 4vw;
+border-radius: 16px;
 
+}
 </style>

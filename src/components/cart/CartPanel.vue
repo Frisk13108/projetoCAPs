@@ -32,5 +32,18 @@ import { carrinho } from '@/utils/cartUtils.js';
 </template>
 
 <style scoped>
-
+div.padrao{
+    background-color: white;
+    padding: 2vw 4vw;
+border-radius: 16px;}
+h1{
+    color: rgb(200, 8, 229);
+}
+p{
+    color: rgb(0, 0, 0);;
+}
+a{
+    color: rgb(200, 8, 229);;
+}
+    
 </style>
