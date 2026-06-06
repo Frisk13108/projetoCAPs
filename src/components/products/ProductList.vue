@@ -3,6 +3,8 @@
 import { produtos } from '@/data/product';
 import ButtonChild from '../ButtonChild.vue';
 import { ref } from 'vue';
+import { produtosCarrinho } from '@/data/produtosCarrinho.js';
+let cocoXixi = {id:1, nome:`Hermínia`};
 
 let teste = ref(false);
 </script>
@@ -31,9 +33,11 @@ Fechar
 </ButtonChild>
 
 </div>
-<ButtonChild @clique="teste = true" v-show="teste == false">
-Eu sou um botun
+<ButtonChild @clique="produtosCarrinho.push(cocoXixi)" v-show="teste == false">
+Adcionar
 </ButtonChild>
+{{ produtosCarrinho }}
+{{ produtosCarrinho.length }}
 </template>
 
 <style scoped>
