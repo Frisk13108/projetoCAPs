@@ -5,7 +5,7 @@
 <template>
     <div class="padrao">
         <h1>Olá!</h1>
-       <p> Bem vindo a nossa livraria! Fique a vontade para explorar os diversos romances aqui disponíveis. Agradecemos a preferência (=</p> 
+       <p> Bem vindo a livraria CAP(as)! Fique a vontade para explorar os diversos romances aqui disponíveis. Agradecemos a preferência (=</p> 
     </div>
  
 </template>
