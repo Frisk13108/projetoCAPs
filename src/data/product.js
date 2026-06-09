@@ -7,7 +7,7 @@ export const produtos = [
     resenha:
       'Fogo & Sangue narra a história da dinastia Targaryen em Westeros, da conquista de Aegon I até a sangrenta guerra civil que dizimou seus dragões. Escrito como uma crônica, o livro detalha a ascensão e queda da família e serve como base para a série A Casa do Dragão.',
     preco: 199.9,
-    capa: 'https://pt.wikipedia.org/wiki/Fire_%26_Blood#/media/Ficheiro:Fire_&_Blood_(2018).jpg://covers.openlibrary.org/b/isbn/9780132350884-L.jpg',
+    capa: '/images/fire-and-blood.jpg',
   },
   {
     id: 2,
@@ -16,12 +16,12 @@ export const produtos = [
     resenha:
       'Charlie tenta superar o passado, mas novos assassinatos revelam monstros biomecânicos e ilusórios criados por William Afton.Ela é caçada implacavelmente pelos terríveis animatrônicos Distorcidos, culminando em um desfecho brutal e surpreendente.',
     preco: 149.9,
-    capa: 'https://covers.ophttps://m.media-amazon.com/images/I/A1f2THt4FWL.jpgenlibrary.org/b/isbn/9780201616224-L.jpg',
+    capa: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS0iSvfOI3-4Rv0jcRfZwtu-IG3TAIWvcSGw&s',
   },
   {
     id: 3,
     titulo: 'Ordem Paranormal: O livro de regras do mestre',
-    autor: 'Cellbit e outros',
+    autor: 'Rafael "Cellbit" Lange',
     resenha:
       'O Livro de Regras é o primeiro conteúdo de Ordem Paranormal RPG, jogo oficial do universo criado por Cellbit. Anunciado em novembro de 2021, o sistema introduz a base e os conceitos para criar personagens e histórias desse cenário.',
     preco: 249.9,
@@ -33,7 +33,7 @@ export const produtos = [
     autor: 'Bram Stoker',
     resenha: 'O corretor de imóveis Jonathan Harker viaja para a transilvânia para vender uma propiedade ao conde Drácula',
     preco: 159.9,
-    capa: 'https://covehttps://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Dracula_1st_ed_cover_reproduction.jpg/960px-Dracula_1st_ed_cover_reproduction.jpgrs.openlibrary.org/b/isbn/9781091210092-L.jpg',
+    capa: 'https://imagens.disal.com.br/produtos/ampliada/5697026.jpg',
   },
   {
     id: 5,

@@ -15,10 +15,10 @@ let teste = ref(false);
     <div class="container">
         <ul>
             <li v-for="livro in produtos" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
-                {{ livro.titulo }}
-                {{ livro.capa }}
-                {{ livro.autor }}
-                {{ livro.preco }}
+                <img :src="livro.capa" :alt="livro.titulo">
+                <h3>{{ livro.titulo }}</h3>
+                <p class="autor">{{ livro.autor }}</p>
+                <p class="preco">{{ livro.preco }}</p>
             </li>
         </ul>
     </div>
@@ -42,9 +42,31 @@ Adcionar
 
 <style scoped>
 
- ul {
+ul {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5vw;
+    margin: 10vw 0 0 0;
+    list-style: none;
 } 
+
+li img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+}
+li h3 {
+    color: white;
+    font-size: 1vw;
+}
+li p.autor {
+    color: rgb(121, 140, 141);
+    font-size: 14px;
+}
+li p.preco {
+    color: green;
+    font-weight: bold;
+    font-size: 1rem;
+}
 
 </style>
