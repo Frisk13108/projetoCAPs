@@ -24,7 +24,7 @@ import { carrinho } from '@/utils/cartUtils.js';
 </div>
 <div class="carrinho">
     <ul>
-        <li v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 2">
+        <li v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 1">
             {{ produto }}
         </li>
     </ul>
