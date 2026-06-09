@@ -5,8 +5,8 @@ import { ref } from 'vue';
 let semItens = ref(true);
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { carrinho } from '@/utils/cartUtils.js';
-
-
+import ButtonChild from '../ButtonChild.vue';
+import CartItem from './CartItem.vue';
 
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
 
@@ -24,9 +24,9 @@ import { carrinho } from '@/utils/cartUtils.js';
 </div>
 <div class="carrinho">
     <ul>
-        <li v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 2">
+        <CartItem v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 1">
             {{ produto }}
-        </li>
+        </CartItem>
     </ul>
 </div>
 </template>
