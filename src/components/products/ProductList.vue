@@ -26,7 +26,7 @@ let teste = ref(false);
 
 <div v-show="teste == true">
 <p>
-    eu sou um teste 
+    eu sou um teste
 </p>
 <ButtonChild @clique="teste = false">
 Fechar
@@ -48,7 +48,7 @@ ul {
     gap: 5vw;
     margin: 10vw 0 0 0;
     list-style: none;
-} 
+}
 
 li img {
     width: 150px;
