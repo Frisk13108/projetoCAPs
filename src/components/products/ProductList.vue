@@ -6,6 +6,22 @@ import { ref } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 let cocoXixi = {id:1, nome:`Hermínia`};
 
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const route = useRoute()
+
+const livrosFiltrados = computed(() => {
+  const termo = (route.query.q || '').toLowerCase()
+
+  if (!termo) return produtos
+
+  return produtos.filter(livro =>
+    livro.titulo.toLowerCase().includes(termo) ||
+    livro.autor.toLowerCase().includes(termo)
+  )
+})
+
 let teste = ref(false);
 </script>
 
@@ -14,7 +30,7 @@ let teste = ref(false);
 <section>
     <div class="container">
         <ul>
-            <li v-for="livro in produtos" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
+            <li v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
                 <img :src="livro.capa" :alt="livro.titulo">
                 <h3>{{ livro.titulo }}</h3>
                 <p class="autor">{{ livro.autor }}</p>

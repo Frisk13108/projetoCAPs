@@ -7,19 +7,14 @@ const route = useRoute()
 const router = useRouter()
 const busca = ref(route.query.q ?? '')
 
-watch(busca, (valor) => {
-  router.push({
-    path: '/catalogo',
-    query: valor ? { q: valor } : {},
+watch(busca, (novoValor) => {
+  router.replace({
+    query: {
+      ...route.query,
+      q: novoValor
+    }
   })
 })
-
-watch(
-  () => route.query.q,
-  (valor) => {
-    busca.value = valor ?? ''
-  },
-)
 
 </script>
 
