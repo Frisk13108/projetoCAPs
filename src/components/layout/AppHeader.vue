@@ -1,6 +1,26 @@
 <script setup>
 // Este arquivo é um componente Vue que representa o cabeçalho do aplicativo, contendo a barra de navegação com links para as principais seções do site, como Home, Produtos e Carrinho. Ele é projetado para ser reutilizado em todas as páginas do aplicativo, proporcionando uma navegação consistente para os usuários.
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
+
+const route = useRoute()
+const router = useRouter()
+const busca = ref(route.query.q ?? '')
+
+watch(busca, (valor) => {
+  router.push({
+    path: '/catalogo',
+    query: valor ? { q: valor } : {},
+  })
+})
+
+watch(
+  () => route.query.q,
+  (valor) => {
+    busca.value = valor ?? ''
+  },
+)
+
 </script>
 
 <template>
@@ -10,6 +30,7 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/produtos">Produtos</RouterLink>
       <RouterLink to="/carrinho">Carrinho</RouterLink>
     </nav>
+    <input v-model="busca" type="search" placeholder="Buscar produto..." class="busca" />
   </header>
 </template>
 
