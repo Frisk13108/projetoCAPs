@@ -69,5 +69,37 @@ export const produtos = [
     preco: 299.9,
     capa: 'https://m.media-amazon.com/images/I/71ugcKCFW7L._AC_UF1000,1000_QL80_.jpg',
   },
+  {
+    id: 9,
+    titulo: 'O Diario Perdido de Gravity Falls',
+    autor: 'Stanford Pines',
+    resenha: 'O diário relata as aventuras dos gêmeos Dipper e Mabel e detalha os mistérios da pacata cidade',
+    preco: 67.69,
+    capa: 'https://m.media-amazon.com/images/I/61n4ciGrcfL.jpg',
+  },
+  // {
+  //   id: ,
+  //   titulo: '',
+  //   autor: '',
+  //   resenha: '',
+  //   preco: ,
+  //   capa: '',
+  // },
+  {
+    id: 10,
+    titulo: 'O Livro do Bill',
+    autor: 'Alex Hirsch',
+    resenha: 'Diferente dos diários anteriores focados nos heróis, este livro é inteiramente narrado por Bill Cipher, o icônico demônio triangular da série. Do além, ele usa as páginas para contar o seu lado da história. A obra funciona como um compilado perturbador que mistura a trágica e bizarra origem de Bill em sua dimensão 2D, seus planos de dominação mundial e suas interferências secretas na história da humanidade.',
+    preco: 90,
+    capa: 'https://m.media-amazon.com/images/I/81IioFHXeOL._UF1000,1000_QL80_.jpg',
+  },
+  {
+    id: 11,
+    titulo: 'O Retrato De Dorian Gray',
+    autor: 'Oscar Wilde',
+    resenha: 'Acompanha um jovem aristocrata que faz um pacto faustiano: ele vende sua alma para manter-se eternamente jovem, enquanto um retrato pintado por um amigo envelhece e apodce fisicamente a cada um de seus pecados e crimes',
+    preco: 99.90,
+    capa: 'https://http2.mlstatic.com/D_NQ_NP_733742-MLU50456317179_062022-O.webp',
+  },
 ]
 
