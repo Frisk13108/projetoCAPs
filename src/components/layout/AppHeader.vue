@@ -44,7 +44,7 @@ header {
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 3vw;
+  gap: 20vw;
 }
 nav {
   display: flex;
@@ -68,7 +68,7 @@ ul {
 }
 .pesquisar {
   border-radius: 5vw;
-  padding: 6px 10px 6px 10px;
+  padding: 6px 20px 6px 20px;
   border: rebeccapurple solid 2px;
 }
 </style>
