@@ -18,7 +18,7 @@ import CartItem from './CartItem.vue';
         Opa!
     </h1>
     <p>
-        Parece que ainda não ha nehum item em seu carrinho, clique <a href="/produtos">aqui</a> para ver nosso catálogo.
+        Parece que ainda não ha nenhum item em seu carrinho, clique <a href="/produtos">aqui</a> para ver nosso catálogo.
     </p>
 
 </div>
