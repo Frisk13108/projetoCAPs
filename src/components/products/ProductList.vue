@@ -4,9 +4,10 @@ import { produtos } from '@/data/product';
 import ButtonChild from '../ButtonChild.vue';
 import { ref } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
-let cocoXixi = {id:1, nome:`Hermínia`};
+defineProps(['nome', 'id', 'resenha', 'autor'])
 
-let teste = ref(false);
+
+
 </script>
 
 
@@ -19,25 +20,15 @@ let teste = ref(false);
                 <h3>{{ livro.titulo }}</h3>
                 <p class="autor">{{ livro.autor }}</p>
                 <p class="preco">{{ livro.preco }}</p>
+                <ButtonChild @clique="produtosCarrinho.push(livro)"> Adcionar </ButtonChild>
+                 <ButtonChild> Informações </ButtonChild>
             </li>
         </ul>
     </div>
 </section>
 
-<div v-show="teste == true">
-<p>
-    eu sou um teste 
-</p>
-<ButtonChild @clique="teste = false">
-Fechar
-</ButtonChild>
 
-</div>
-<ButtonChild @clique="produtosCarrinho.push(cocoXixi)" v-show="teste == false">
-Adcionar
-</ButtonChild>
-{{ produtosCarrinho }}
-{{ produtosCarrinho.length }}
+
 </template>
 
 <style scoped>

@@ -13,7 +13,7 @@ import { carrinho } from '@/utils/cartUtils.js';
 </script>
 
 <template>
-<div class="padrao" v-show="produtosCarrinho.length === 1">
+<div class="padrao" v-show="produtosCarrinho.length === 0">
     <h1>
         Opa!
     </h1>
