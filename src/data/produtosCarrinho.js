@@ -1,7 +1,7 @@
 import { ref } from "vue";
 export const produtosCarrinho = ref([
         {
-    id: 1,
+    id: 2,
     titulo: 'Game of thrones: Fogo e Sangue',
     autor: 'George R. R. Martin',
     resenha:
