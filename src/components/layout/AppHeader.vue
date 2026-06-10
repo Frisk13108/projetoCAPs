@@ -25,7 +25,9 @@ watch(busca, (novoValor) => {
       <RouterLink to="/produtos">Produtos</RouterLink>
       <RouterLink to="/carrinho">Carrinho</RouterLink>
     </nav>
-    <input v-model="busca" type="search" placeholder="Buscar produto..." class="busca" />
+    <div class="pesquisa">
+      <input v-model="busca" type="search" placeholder="Buscar produto..." class="pesquisar" />
+    </div>
   </header>
 </template>
 
@@ -40,6 +42,9 @@ header {
   padding: 16px;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 3vw;
 }
 nav {
   display: flex;
@@ -56,5 +61,14 @@ ul {
   justify-content: space-between;
   display: flex;
   gap: 1vw;
+}
+.pesquisa {
+  display: flex;
+  justify-content: center;
+}
+.pesquisar {
+  border-radius: 5vw;
+  padding: 6px 10px 6px 10px;
+  border: rebeccapurple solid 2px;
 }
 </style>

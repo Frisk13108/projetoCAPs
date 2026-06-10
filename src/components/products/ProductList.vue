@@ -12,13 +12,13 @@ import { computed } from 'vue'
 const route = useRoute()
 
 const livrosFiltrados = computed(() => {
-  const termo = (route.query.q || '').toLowerCase()
+  const palavra = (route.query.q || '').toLowerCase()
 
-  if (!termo) return produtos
+  if (!palavra) return produtos
 
   return produtos.filter(livro =>
-    livro.titulo.toLowerCase().includes(termo) ||
-    livro.autor.toLowerCase().includes(termo)
+    livro.titulo.toLowerCase().includes(palavra) 
+    // || livro.autor.toLowerCase().includes(palavra)
   )
 })
 
