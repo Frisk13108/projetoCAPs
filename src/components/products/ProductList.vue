@@ -5,6 +5,7 @@ import ButtonChild from '../ButtonChild.vue';
 import { ref } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 defineProps(['nome', 'id', 'resenha', 'autor'])
+let informacoes = ref(false);
 
 
 
@@ -21,12 +22,18 @@ defineProps(['nome', 'id', 'resenha', 'autor'])
                 <p class="autor">{{ livro.autor }}</p>
                 <p class="preco">{{ livro.preco }}</p>
                 <ButtonChild @clique="produtosCarrinho.push(livro)"> Adcionar </ButtonChild>
-                 <ButtonChild> Informações </ButtonChild>
+                 <ButtonChild @clique="informacoes = true"> Informações </ButtonChild>
             </li>
         </ul>
     </div>
 </section>
+<div v-if="informacoes" class="overlay" :resenha>
+    <h3>Título: {{  }}</h3>
+    <h4>Autor: {{ autor }}</h4>
+    <p>{{ resenha }}</p>
+    <ButtonChild @clique="informacoes = false">Fechar</ButtonChild>
 
+</div>
 
 
 </template>
