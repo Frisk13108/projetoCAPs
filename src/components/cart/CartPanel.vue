@@ -2,7 +2,7 @@
 import router from '@/router';
 import ProductList from '../products/ProductList.vue';
 import { ref } from 'vue';
-let semItens = ref(true);
+// let semItens = ref(true);
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { carrinho } from '@/utils/cartUtils.js';
 

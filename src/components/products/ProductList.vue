@@ -4,8 +4,13 @@ import { produtos } from '@/data/product';
 import ButtonChild from '../ButtonChild.vue';
 import { ref } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
+import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 defineProps(['nome', 'id', 'resenha', 'autor'])
+let existe = false;
 let informacoes = ref(false);
+function impossivel(){
+    alert('Este livro já foi favoritado!')
+}
 
 
 
@@ -23,6 +28,11 @@ let informacoes = ref(false);
                 <p class="preco">{{ livro.preco }}</p>
                 <ButtonChild @clique="produtosCarrinho.push(livro)"> Adcionar </ButtonChild>
                  <ButtonChild @clique="informacoes = true"> Informações </ButtonChild>
+                 <ButtonChild @clique="existe = produtosFavoritos.findIndex(p => p.titulo == livro.titulo); if(existe == -1){
+                    produtosFavoritos.push(livro)
+                 }else{
+                    impossivel()
+                 }" class="favoritar">Favoritar</ButtonChild>
             </li>
         </ul>
     </div>
@@ -67,5 +77,9 @@ li p.preco {
     font-weight: bold;
     font-size: 1rem;
 }
-
+.favoritar{
+    color: white;
+    background-color: red;
+    padding: 5px;
+}
 </style>

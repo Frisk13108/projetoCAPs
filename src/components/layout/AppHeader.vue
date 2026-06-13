@@ -9,6 +9,7 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/produtos">Produtos</RouterLink>
       <RouterLink to="/carrinho">Carrinho</RouterLink>
+      <RouterLink to="/favoritos">Favoritos</RouterLink>
     </nav>
   </header>
 </template>
