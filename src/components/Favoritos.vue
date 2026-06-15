@@ -9,7 +9,7 @@ import { ref } from 'vue';
         Opa!
     </h1>
     <p>
-        Parece que ainda não ha nenhum item favoritado, clique <a href="/produtos">aqui</a> para achar seu próximo livro favorito!
+        Parece que ainda não ha nenhum item favoritado, clique <RouterLink to="/produtos">aqui</RouterLink> para achar seu próximo livro favorito!
     </p>
 
 </div>

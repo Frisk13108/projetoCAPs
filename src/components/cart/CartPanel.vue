@@ -18,7 +18,7 @@ import { carrinho } from '@/utils/cartUtils.js';
         Opa!
     </h1>
     <p>
-        Parece que ainda não ha nehum item em seu carrinho, clique <a href="/produtos">aqui</a> para ver nosso catálogo.
+        Parece que ainda não ha nehum item em seu carrinho, clique <RouterLink to="/produtos">aqui</RouterLink> para ver nosso catálogo.
     </p>
 
 </div>

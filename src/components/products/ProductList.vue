@@ -8,10 +8,25 @@ import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 defineProps(['nome', 'id', 'resenha', 'autor'])
 let existe = false;
 let informacoes = ref(false);
-function impossivel(){
-    alert('Este livro já foi favoritado!')
-}
 
+ function adcionarFavoritos(livro){
+  existe = produtosFavoritos.value.findIndex(p => p.titulo == livro.titulo);
+   if(existe == -1){
+                    produtosFavoritos.value.push(livro)
+                 }else{
+                    alert("Este livro já foi favoritado!")
+                 }  
+ }
+
+ function adcionarCarrinho(livro){
+existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
+   if(existe == -1){
+                    produtosCarrinho.value.push(livro)
+                 }else{
+                    produtosCarrinho.value[existe].id++
+                 }  
+ }
+ 
 
 
 </script>
@@ -26,13 +41,9 @@ function impossivel(){
                 <h3>{{ livro.titulo }}</h3>
                 <p class="autor">{{ livro.autor }}</p>
                 <p class="preco">{{ livro.preco }}</p>
-                <ButtonChild @clique="produtosCarrinho.push(livro)"> Adcionar </ButtonChild>
+                <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
                  <ButtonChild @clique="informacoes = true"> Informações </ButtonChild>
-                 <ButtonChild @clique="existe = produtosFavoritos.findIndex(p => p.titulo == livro.titulo); if(existe == -1){
-                    produtosFavoritos.push(livro)
-                 }else{
-                    impossivel()
-                 }" class="favoritar">Favoritar</ButtonChild>
+                 <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">Favoritar</ButtonChild>
             </li>
         </ul>
     </div>
