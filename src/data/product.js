@@ -175,5 +175,26 @@ export const produtos = [
     categoria: 'Terror',
     quantidade: 1,
   },
+  {
+    id: 17,
+    titulo: 'FavoRita',
+    autor: 'Rita Lee',
+    resenha: 'Incriveis fotos secretas de Rita Lee',
+    preco: 70,
+    capa: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf9uIuXWI1MDNnCddlZTa1Wf-gzSvjdKkLENLRfiivBl9uBF9BFtLg1670&s=10',
+   categoria: 'Biografia',
+  quantidade: 1,
+  },
+  {
+    id: 18,
+    titulo: 'O Fantasma da Ópera',
+    autor: 'Gaston Leroux',
+    resenha: 'ANDRÉ ESCREVA A RESENHA DE O FANTASMA DA OPERA',
+    preco: 89.90,
+    capa: 'https://imagens.disal.com.br/produtos/ampliada/9933220.jpg',
+   categoria: 'Terror',
+  quantidade: 1,
+  },
+
 ]
 

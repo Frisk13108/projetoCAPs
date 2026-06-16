@@ -1,2 +1,2 @@
 import { ref } from "vue";
-export const categorias = ref(['Romance', 'Fantasia', 'Ficção Cientifica','Suspense e Policial', 'Terror', 'Distopia', 'Infantil',]);
+export const categorias = ref(['Romance', 'Fantasia', 'Ficção Cientifica','Suspense e Policial', 'Terror', 'Distopia', 'Infantil', 'Biografia']);
