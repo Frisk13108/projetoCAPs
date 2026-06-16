@@ -2,19 +2,38 @@
 // Este arquivo é um componente Vue que permitirá listar os livros disponíveis para compra. Ele exibirá uma grade de produtos, onde cada produto será representado por um componente ProductCard.vue. O componente ProductList.vue será responsável por buscar os dados dos livros (que estão armazenados em um arquivo JS local - /src/data/products.js). Ele usará um loop para renderizar um ProductCard para cada livro na lista, passando as informações do livro como props para o componente ProductCard. O ProductList.vue é projetado para ser usado na página de listagem de produtos, onde os usuários podem navegar pelos livros disponíveis e clicar em um produto para ver mais detalhes ou adicioná-lo ao carrinho de compras.
 import { produtos } from '@/data/product';
 import ButtonChild from '../ButtonChild.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 let cocoXixi = {id:1, nome:`Hermínia`};
+import { categorias } from '@/data/categorias.js';
+import Filter from '@/Views/Filter.vue';
+
+const categoriaSelecionada = ref('')
 
 let teste = ref(false);
+
+const livrosFiltrados = computed(() => {
+
+  if (!categoriaSelecionada.value) {
+    return produtos
+  }
+
+  return produtos.filter(
+    livro => livro.categoria === categoriaSelecionada.value
+  )
+
+})
 </script>
 
 
 <template>
+
+
 <section>
+    
     <div class="container">
         <ul>
-            <li v-for="livro in produtos" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
+            <li v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
                 <img :src="livro.capa" :alt="livro.titulo">
                 <h3>{{ livro.titulo }}</h3>
                 <p class="autor">{{ livro.autor }}</p>
@@ -23,6 +42,10 @@ let teste = ref(false);
         </ul>
     </div>
 </section>
+
+<div>
+    <Filter @filtrar="categoriaSelecionada = $event"></Filter>
+</div>
 
 <div v-show="teste == true">
 <p>
