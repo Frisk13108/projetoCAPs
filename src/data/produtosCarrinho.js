@@ -9,4 +9,13 @@ export const produtosCarrinho = ref([
     preco: 199.9,
     capa: 'https://m.media-amazon.com/images/I/81pa0QoG6ML._AC_UF1000,1000_QL80_.jpg',
   },
+  {
+    id: 3,
+    titulo: 'Os Distorcidos',
+    autor: 'Scott Cawthon e Kira Breed-Wrisley',
+    resenha:
+      'Charlie tenta superar o passado, mas novos assassinatos revelam monstros biomecânicos e ilusórios criados por William Afton.Ela é caçada implacavelmente pelos terríveis animatrônicos Distorcidos, culminando em um desfecho brutal e surpreendente.',
+    preco: 149.9,
+    capa: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS0iSvfOI3-4Rv0jcRfZwtu-IG3TAIWvcSGw&s',
+  }
 ]);
