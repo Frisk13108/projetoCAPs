@@ -1,6 +1,7 @@
 <script setup>
 // Este arquivo é um componente Vue que representa o cabeçalho do aplicativo, contendo a barra de navegação com links para as principais seções do site, como Home, Produtos e Carrinho. Ele é projetado para ser reutilizado em todas as páginas do aplicativo, proporcionando uma navegação consistente para os usuários.
 import { RouterLink } from 'vue-router'
+import Filter from '@/Views/Filter.vue';
 </script>
 
 <template>
@@ -10,6 +11,9 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/produtos">Produtos</RouterLink>
       <RouterLink to="/carrinho">Carrinho</RouterLink>
     </nav>
+    <div>
+      <Filter @filtrar="categoriaSelecionada = $event"></Filter>
+    </div>
   </header>
 </template>
 
