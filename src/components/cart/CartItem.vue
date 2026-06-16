@@ -1,10 +1,7 @@
 <script setup>
 // Este arquivo é para o componente CartItem.vue, que representa um item individual no carrinho de compras. Ele exibe as informações do produto, como nome, preço e quantidade, e permite que o usuário ajuste a quantidade ou remova o item do carrinho.
 
-    import { produtos } from '@/data/product';
     import { produtosCarrinho } from '@/data/produtosCarrinho';
-    import CartPanel from './CartPanel.vue';
-    import ProductList from '../products/ProductList.vue';
     import ButtonChild from '../ButtonChild.vue';
     defineProps(['id']);
 
@@ -21,7 +18,7 @@
 
     <div>
         <ul>
-            <li v-for="produto in produtosCarrinho" :nome="produto.titulo" :capa="produto.capa" :preco="produto.preco" :id="produto.id">
+            <li v-for="produto in produtosCarrinho" :nome="produto.titulo" :capa="produto.capa" :preco="produto.preco" :key="produto.id">
                 <img :src="produto.capa" :alt="produto.capa">
                 <div class="texto">
                     <h3>{{ produto.titulo }}</h3>

@@ -13,7 +13,7 @@ import CartItem from './CartItem.vue';
 </script>
 
 <template>
-<div class="padrao" v-show="produtosCarrinho.length === 1">
+<div class="padrao" v-show="produtosCarrinho.length === 0">
     <h1>
         Opa!
     </h1>
@@ -22,6 +22,7 @@ import CartItem from './CartItem.vue';
     </p>
 
 </div>
+
 <div class="carrinho">
     <ul>
         <CartItem v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 1">
@@ -29,6 +30,15 @@ import CartItem from './CartItem.vue';
         </CartItem>
     </ul>
 </div>
+
+<div class="prosseguir" v-show="produtosCarrinho.length >= 1">
+    <RouterLink to="/resumo">
+        <button>
+            Prosseguir
+        </button>
+    </RouterLink>
+</div>
+
 </template>
 
 <style scoped>

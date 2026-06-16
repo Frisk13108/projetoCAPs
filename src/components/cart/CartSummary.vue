@@ -4,7 +4,9 @@
 </script>
 
 <template>
-
+<p>
+    cuzinho
+</p>
 </template>
 
 <style scoped>
