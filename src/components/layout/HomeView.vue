@@ -17,19 +17,43 @@ import { produtos } from '@/data/product'
           entender a mitologia de Westeros e os eventos que moldaram a série da HBO, A Casa do
           Dragão.
         </p>
-        <button>Acessar página do livro</button>
+        <RouterLink to="/produtos"><button>Acessar página do livro</button></RouterLink>
       </div>
       <div class="capa">
         <img src="/images/fire-and-blood.jpg" alt="Game of thrones: Fogo e Sangue" />
       </div>
     </section>
+
+    <section>
+      <div>
+        Frete Grátis para SC
+      </div>
+      <div>
+        LIvros Recomentados
+      </div>
+      <div>
+        Mais Vendidos
+      </div>
+      
+    </section>
+
+    <h2>
+      Mais Vendidos
+    </h2>
   </main>
   <footer>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/produtos">Produtos</RouterLink>
-      <RouterLink to="/carrinho">Carrinho</RouterLink>
-    </nav>
+    <div>
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+       <RouterLink to="/produtos">Produtos</RouterLink>
+        <RouterLink to="/carrinho">Carrinho</RouterLink>
+      </nav>
+    </div>
+    <div>
+      <p>Contato:</p>
+      <p>(67)6767-7676</p>
+      <p>Capas@gmail.com</p>
+    </div>
   </footer>
 </template>
 
@@ -84,12 +108,15 @@ p {
 
 footer {
   background-color: #250050;
+  display: flex;
+  justify-content: space-between;
+  padding: 3vw 3vw;
+  font-size: 1vw;
 }
 footer nav {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     list-style: none;
     color: black;
-    padding: 1vw 1vw 1vw 3vw;
 }
 </style>
