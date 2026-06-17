@@ -22,7 +22,7 @@ function adcionarCarrinho(livro) {
     produtosCarrinho.value[existe].id++
   }
 }
-defineProps(['id', 'titulo', 'preco', 'resenha', 'autor', 'capa'])
+defineProps(['id', 'titulo', 'preco', 'resenha', 'autor', 'capa', 'livro'])
 </script>
 
 <template>

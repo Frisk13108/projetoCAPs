@@ -10,7 +10,7 @@ console.log(produtos)
 <template>
   <section>
     <div class="catalogo">
-        <ProductCard v-for="livro in produtos" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :capa="livro.capa" :resenha="livro.resenha" :autor="livro.autor" :id="livro.id">
+        <ProductCard v-for="livro in produtos" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :capa="livro.capa" :resenha="livro.resenha" :autor="livro.autor" :id="livro.id" :livro="livro">
             
         </ProductCard>
     </div>
