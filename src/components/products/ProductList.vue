@@ -47,8 +47,8 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
-let cocoXixi = {id:1, nome:`Hermínia`};
-import { categorias } from '@/data/categorias.js';
+
+
 import Filter from '@/Views/Filter.vue';
 
 const categoriaSelecionada = ref('')
@@ -94,6 +94,7 @@ const livrosFiltrados = computed(() => {
     <p>{{ produtoSelecionado.resenha }}</p>
 
     <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
+  </div>
   </div>
 <div>
     <Filter @filtrar="categoriaSelecionada = $event"></Filter>
