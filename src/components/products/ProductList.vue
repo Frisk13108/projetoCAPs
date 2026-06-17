@@ -1,13 +1,21 @@
 <script setup>
 // Este arquivo é um componente Vue que permitirá listar os livros disponíveis para compra. Ele exibirá uma grade de produtos, onde cada produto será representado por um componente ProductCard.vue. O componente ProductList.vue será responsável por buscar os dados dos livros (que estão armazenados em um arquivo JS local - /src/data/products.js). Ele usará um loop para renderizar um ProductCard para cada livro na lista, passando as informações do livro como props para o componente ProductCard. O ProductList.vue é projetado para ser usado na página de listagem de produtos, onde os usuários podem navegar pelos livros disponíveis e clicar em um produto para ver mais detalhes ou adicioná-lo ao carrinho de compras.
+
+// imports ////////////////////
+
 import { produtos } from '@/data/product';
 import ButtonChild from '../ButtonChild.vue';
 import { ref } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { produtosFavoritos } from '@/data/produtosFavoritos.js';
+
+// props/////////////////////////////
+
 defineProps(['nome', 'id', 'resenha', 'autor'])
 let existe = false;
-let informacoes = ref(false);
+
+
+// functions /////////////////////////////////
 
  function adcionarFavoritos(livro){
   existe = produtosFavoritos.value.findIndex(p => p.titulo == livro.titulo);
@@ -27,7 +35,17 @@ existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
                  }  
  }
  
+const mostrarPopup = ref(false);
+const produtoSelecionado = ref(null);
 
+function abrirPopup(produto) {
+  produtoSelecionado.value = produto;
+  mostrarPopup.value = true;
+}
+
+function fecharPopup() {
+  mostrarPopup.value = false;
+}
 
 </script>
 
@@ -42,18 +60,20 @@ existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
                 <p class="autor">{{ livro.autor }}</p>
                 <p class="preco">{{ livro.preco }}</p>
                 <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
-                 <ButtonChild @clique="informacoes = true"> Informações </ButtonChild>
+                 <ButtonChild @clique="abrirPopup(livro)"> Informações </ButtonChild>
                  <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">Favoritar</ButtonChild>
             </li>
         </ul>
     </div>
 </section>
-<div v-if="informacoes" class="overlay" :resenha>
-    <h3>Título: {{  }}</h3>
-    <h4>Autor: {{ autor }}</h4>
-    <p>{{ resenha }}</p>
-    <ButtonChild @clique="informacoes = false">Fechar</ButtonChild>
+<div v-if="mostrarPopup" class="overlay" @click.self="fecharPopup">
+  <div class="popup">
+    <h3>Título: {{ produtoSelecionado.titulo }}</h3>
+    <h4>Autor: {{ produtoSelecionado.autor }}</h4>
+    <p>{{ produtoSelecionado.resenha }}</p>
 
+    <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
+  </div>
 </div>
 
 
@@ -92,5 +112,27 @@ li p.preco {
     color: white;
     background-color: red;
     padding: 5px;
+}
+/* modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  color: black;
 }
 </style>

@@ -29,6 +29,8 @@ import { carrinho } from '@/utils/cartUtils.js';
         </li>
     </ul>
 </div>
+
+
 </template>
 
 <style scoped>
