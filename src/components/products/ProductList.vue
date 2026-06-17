@@ -31,7 +31,7 @@ existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
    if(existe == -1){
                     produtosCarrinho.value.push(livro)
                  }else{
-                    produtosCarrinho.value[existe].id++
+                    produtosCarrinho.value[existe].quantidade++
                  }  
  }
  
@@ -47,8 +47,8 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
-let cocoXixi = {id:1, nome:`Hermínia`};
-import { categorias } from '@/data/categorias.js';
+
+
 import Filter from '@/Views/Filter.vue';
 
 const categoriaSelecionada = ref('')
@@ -96,6 +96,7 @@ const livrosFiltrados = computed(() => {
 
     <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
   </div>
+</div>
 <div>
     <Filter @filtrar="categoriaSelecionada = $event"></Filter>
 </div>
