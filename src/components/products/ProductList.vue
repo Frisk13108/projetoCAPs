@@ -5,7 +5,7 @@
 
 import { produtos } from '@/data/product';
 import ButtonChild from '../ButtonChild.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 
@@ -47,14 +47,36 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
+let cocoXixi = {id:1, nome:`Hermínia`};
+import { categorias } from '@/data/categorias.js';
+import Filter from '@/Views/Filter.vue';
+
+const categoriaSelecionada = ref('')
+
+let teste = ref(false);
+
+const livrosFiltrados = computed(() => {
+
+  if (!categoriaSelecionada.value) {
+    return produtos
+  }
+
+  return produtos.filter(
+    livro => livro.categoria === categoriaSelecionada.value
+  )
+
+})
 </script>
 
 
 <template>
+
+
 <section>
+    
     <div class="container">
         <ul>
-            <li v-for="livro in produtos" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
+            <li v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
                 <img :src="livro.capa" :alt="livro.titulo">
                 <h3>{{ livro.titulo }}</h3>
                 <p class="autor">{{ livro.autor }}</p>
@@ -74,6 +96,18 @@ function fecharPopup() {
 
     <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
   </div>
+<div>
+    <Filter @filtrar="categoriaSelecionada = $event"></Filter>
+</div>
+
+<div v-show="teste == true">
+<p>
+    eu sou um teste 
+</p>
+<ButtonChild @clique="teste = false">
+Fechar
+</ButtonChild>
+
 </div>
 
 
