@@ -8,6 +8,7 @@ import ButtonChild from '../ButtonChild.vue';
 import { ref, computed } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { produtosFavoritos } from '@/data/produtosFavoritos.js';
+import { categoriaSelecionada } from '@/data/filtroCategoria.js';
 
 // props/////////////////////////////
 
@@ -47,13 +48,9 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
-
-
-import Filter from '@/Views/Filter.vue';
-
-const categoriaSelecionada = ref('')
-
 let teste = ref(false);
+
+import Filter from '../Filter.vue';
 
 const livrosFiltrados = computed(() => {
 
@@ -78,12 +75,12 @@ const livrosFiltrados = computed(() => {
         <ul>
             <li v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
                 <img :src="livro.capa" :alt="livro.titulo">
-                <h3>{{ livro.titulo }}</h3>
+                <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild></h3>
                 <p class="autor">{{ livro.autor }}</p>
                 <p class="preco">{{ livro.preco }}</p>
                 <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
                  <ButtonChild @clique="abrirPopup(livro)"> Informações </ButtonChild>
-                 <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">Favoritar</ButtonChild>
+                 
             </li>
         </ul>
     </div>
@@ -97,9 +94,8 @@ const livrosFiltrados = computed(() => {
     <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
   </div>
 </div>
-<div>
-    <Filter @filtrar="categoriaSelecionada = $event"></Filter>
-</div>
+
+  
 
 <div v-show="teste == true">
 <p>
@@ -110,7 +106,6 @@ Fechar
 </ButtonChild>
 
 </div>
-
 
 </template>
 
@@ -144,9 +139,11 @@ li p.preco {
     font-size: 1rem;
 }
 .favoritar{
-    color: white;
-    background-color: red;
-    padding: 5px;
+    color: rgb(255, 0, 0);
+    background-color: transparent; 
+    border: 2px solid transparent;
+    font-size: 20px;
+    cursor: pointer; 
 }
 /* modal */
 .overlay {
