@@ -27,6 +27,8 @@ import { produtosCarrinho } from '@/data/produtosCarrinho.js';
         </li>
     </ul>
 </div>
+
+
 </template>
 
 <style scoped>
