@@ -90,5 +90,6 @@ footer nav {
     grid-template-columns: repeat(1, 1fr);
     list-style: none;
     color: black;
+    padding: 1vw 1vw 1vw 3vw;
 }
 </style>
