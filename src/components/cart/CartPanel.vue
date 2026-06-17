@@ -2,7 +2,7 @@
 import router from '@/router';
 import ProductList from '../products/ProductList.vue';
 import { ref } from 'vue';
-let semItens = ref(true);
+// let semItens = ref(true);
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { carrinho } from '@/utils/cartUtils.js';
 
@@ -13,22 +13,24 @@ import { carrinho } from '@/utils/cartUtils.js';
 </script>
 
 <template>
-<div class="padrao" v-show="produtosCarrinho.length === 1">
+<div class="padrao" v-show="produtosCarrinho.length === 0">
     <h1>
         Opa!
     </h1>
     <p>
-        Parece que ainda não ha nehum item em seu carrinho, clique <a href="/produtos">aqui</a> para ver nosso catálogo.
+        Parece que ainda não ha nehum item em seu carrinho, clique <RouterLink to="/produtos">aqui</RouterLink> para ver nosso catálogo.
     </p>
 
 </div>
 <div class="carrinho">
     <ul>
-        <li v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 2">
+        <li v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 1">
             {{ produto }}
         </li>
     </ul>
 </div>
+
+
 </template>
 
 <style scoped>

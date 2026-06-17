@@ -10,6 +10,7 @@ import Filter from '@/Views/Filter.vue';
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/produtos">Produtos</RouterLink>
       <RouterLink to="/carrinho">Carrinho</RouterLink>
+      <RouterLink to="/favoritos">Favoritos</RouterLink>
     </nav>
     <div>
       <Filter @filtrar="categoriaSelecionada = $event"></Filter>
