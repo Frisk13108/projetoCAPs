@@ -1,14 +1,22 @@
 <script setup>
-import router from '@/router';
-import ProductList from '../products/ProductList.vue';
-import { ref } from 'vue';
-let semItens = ref(true);
+
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
-import { carrinho } from '@/utils/cartUtils.js';
-import ButtonChild from '../ButtonChild.vue';
 import CartItem from './CartItem.vue';
+import router from '@/router/index.js';
+import ButtonChild from '../ButtonChild.vue';
 
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
+
+
+let precoFinal = 0;
+
+function prosseguir () {
+    router.push('/resumo');
+
+    for (let produto of produtosCarrinho) {
+        precoFinal = produto.preco + precoFinal;
+    }
+}
 
 </script>
 
@@ -25,18 +33,15 @@ import CartItem from './CartItem.vue';
 
 <div class="carrinho">
     <ul>
-        <CartItem v-for="produto in produtosCarrinho" v-show="produtosCarrinho.length >= 1">
-            {{ produto }}
+        <CartItem v-for="produto in produtosCarrinho" :key="produto.id" :produto="produto" v-show="produtosCarrinho.length >= 1">
         </CartItem>
     </ul>
 </div>
 
 <div class="prosseguir" v-show="produtosCarrinho.length >= 1">
-    <RouterLink to="/resumo">
-        <button>
-            Prosseguir
-        </button>
-    </RouterLink>
+    <ButtonChild @clique="prosseguir()">
+        Prosseguir
+    </ButtonChild>
 </div>
 
 </template>

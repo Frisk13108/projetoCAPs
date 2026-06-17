@@ -3,7 +3,7 @@
 
     import { produtosCarrinho } from '@/data/produtosCarrinho';
     import ButtonChild from '../ButtonChild.vue';
-    defineProps(['id']);
+    defineProps(['produto']);
 
     function remover(produto){
         const posicao = produtosCarrinho.value.findIndex(item => item.id === produto.id);
@@ -12,22 +12,20 @@
 
 
 
+
+
 </script>
 
 <template>
-
     <div>
-        <ul>
-            <li v-for="produto in produtosCarrinho" :nome="produto.titulo" :capa="produto.capa" :preco="produto.preco" :key="produto.id">
-                <img :src="produto.capa" :alt="produto.capa">
-                <div class="texto">
-                    <h3>{{ produto.titulo }}</h3>
-                    <p>{{ produto.preco }}</p>
-                    <ButtonChild @clique="remover(produto)">Remover</ButtonChild>
-                </div>
-                
-            </li>
-        </ul>
+        <li :nome="produto.titulo" :capa="produto.capa" :preco="produto.preco" :key="produto.id">
+            <img :src="produto.capa" :alt="produto.capa">
+            <div class="texto">
+                <h3>{{ produto.titulo }}</h3>
+                <p>{{ produto.preco }}</p>
+                <ButtonChild @clique="remover(produto)">Remover</ButtonChild>
+            </div>
+        </li>
     </div>
 
 </template>
@@ -45,6 +43,7 @@
         border: 1px solid #6e6e6e;
         border-radius: 1vw;
         padding: 1.5vw;
+        margin: 1vw;
     }
 
     h3 {
@@ -58,5 +57,8 @@
         flex-direction: column;
         gap: 2vw;
     }
+    
+
+    
 
 </style>

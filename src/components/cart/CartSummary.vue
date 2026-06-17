@@ -1,15 +1,23 @@
 <script setup>
 // Este arquivo é um componente Vue que representa o último resumo do carrinho de compras, exibindo o total geral e um botão para finalizar a compra.
 
-import { produtosCarrinho } from '@/data/produtosCarrinho';
-import ButtonChild from '../ButtonChild.vue';
-import { RouterLink } from 'vue-router';
+import { computed } from 'vue'
+import { produtosCarrinho } from '@/data/produtosCarrinho'
+import ButtonChild from '../ButtonChild.vue'
+import { useRouter } from 'vue-router'
 
-function confirmar(){
-    produtosCarrinho.value = [];
-    
+const router = useRouter()
+
+const precoFinal = computed(() => {
+  return produtosCarrinho.value.reduce((total, produto) => {
+    return total + produto.preco * (produto.quantidade ?? 1)
+  }, 0)
+})
+
+function confirmar() {
+  produtosCarrinho.value = []
+  router.push('/carrinho')
 }
-
 </script>
 
 <template>
@@ -28,14 +36,12 @@ function confirmar(){
             
 
             <h3>
-                Preço final:
+                Preço final: {{ precoFinal }}
             </h3>
             
-            <RouterLink to="/carrinho">
-                <ButtonChild @clique="confirmar()">
-                    Confirmar Compra
-                </ButtonChild>
-            </RouterLink>
+            <ButtonChild @clique="confirmar()">
+                Confirmar Compra
+            </ButtonChild>
             
 
         </div>
