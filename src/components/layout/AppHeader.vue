@@ -31,6 +31,7 @@ import { categoriaSelecionada } from '@/data/filtroCategoria.js';
     </nav>
     <div class="pesquisa">
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="pesquisar" />
+    </div>
     <div>
       <Filter @filtrar="categoriaSelecionada = $event"></Filter>
     </div>
