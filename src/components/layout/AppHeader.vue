@@ -15,6 +15,9 @@ watch(busca, (novoValor) => {
     }
   })
 })
+import Filter from '../Filter.vue';
+import { produtos } from '@/data/product.js';
+import { categoriaSelecionada } from '@/data/filtroCategoria.js';
 
 </script>
 
@@ -24,9 +27,12 @@ watch(busca, (novoValor) => {
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/produtos">Produtos</RouterLink>
       <RouterLink to="/carrinho">Carrinho</RouterLink>
+      <RouterLink to="/favoritos">Favoritos</RouterLink>
     </nav>
     <div class="pesquisa">
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="pesquisar" />
+    <div>
+      <Filter @filtrar="categoriaSelecionada = $event"></Filter>
     </div>
   </header>
 </template>
