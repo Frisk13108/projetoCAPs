@@ -54,14 +54,27 @@ function fecharPopup() {
 const route = useRoute()
 
 const livrosFiltrados = computed(() => {
-  const palavra = (route.query.q || '').toLowerCase()
 
-  if (!palavra) return produtos
+  if (!categoriaSelecionada.value) {
+    return produtos
+  }
 
-  return produtos.filter(livro =>
-    livro.titulo.toLowerCase().includes(palavra) 
-    // || livro.autor.toLowerCase().includes(palavra)
+  if (categoriaSelecionada.value === 'Maior Preço') {
+    return [...produtos].sort(
+      (a, b) => b.preco - a.preco
+    )
+  }
+
+  if (categoriaSelecionada.value === 'Menor Preço') {
+    return [...produtos].sort(
+      (a, b) => a.preco - b.preco
+    )
+  }
+
+  return produtos.filter(
+    livro => livro.categoria === categoriaSelecionada.value
   )
+
 })
 
 let teste = ref(false);
