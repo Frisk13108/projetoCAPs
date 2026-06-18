@@ -9,7 +9,7 @@ import Favoritos from '@/components/Favoritos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+  routes:[
     {
       path: '/',
       name: 'home',
@@ -29,12 +29,14 @@ const router = createRouter({
       path: '/resumo',
       name: 'resumoDaCompra',
       component: CartSummary,
-    }
+    },
+    {
       path: '/favoritos',
       name: 'favoritos',
       component: Favoritos,
     },
   ],
 })
+
 
 export default router
