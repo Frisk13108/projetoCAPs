@@ -2,7 +2,9 @@
 // Este arquivo é um componente Vue que representa o cabeçalho do aplicativo, contendo a barra de navegação com links para as principais seções do site, como Home, Produtos e Carrinho. Ele é projetado para ser reutilizado em todas as páginas do aplicativo, proporcionando uma navegação consistente para os usuários.
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { ref, watch } from 'vue'
-
+import Filter from '../Filter.vue';
+import { produtos } from '@/data/product.js';
+import { categoriaSelecionada } from '@/data/filtroCategoria.js';
 const route = useRoute()
 const router = useRouter()
 const busca = ref(route.query.q ?? '')
@@ -15,9 +17,7 @@ watch(busca, (novoValor) => {
     }
   })
 })
-import Filter from '../Filter.vue';
-import { produtos } from '@/data/product.js';
-import { categoriaSelecionada } from '@/data/filtroCategoria.js';
+
 
 </script>
 
@@ -31,6 +31,7 @@ import { categoriaSelecionada } from '@/data/filtroCategoria.js';
     </nav>
     <div class="pesquisa">
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="pesquisar" />
+    </div>
     <div>
       <Filter @filtrar="categoriaSelecionada = $event"></Filter>
     </div>

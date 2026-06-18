@@ -9,7 +9,8 @@ import { ref, computed } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
-
+import { useRoute } from 'vue-router'
+import Filter from '../Filter.vue';
 // props/////////////////////////////
 
 defineProps(['nome', 'id', 'resenha', 'autor'])
@@ -48,8 +49,7 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+
 
 const route = useRoute()
 
@@ -66,19 +66,6 @@ const livrosFiltrados = computed(() => {
 
 let teste = ref(false);
 
-import Filter from '../Filter.vue';
-
-const livrosFiltrados = computed(() => {
-
-  if (!categoriaSelecionada.value) {
-    return produtos
-  }
-
-  return produtos.filter(
-    livro => livro.categoria === categoriaSelecionada.value
-  )
-
-})
 </script>
 
 
