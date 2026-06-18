@@ -48,6 +48,22 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const route = useRoute()
+
+const livrosFiltrados = computed(() => {
+  const palavra = (route.query.q || '').toLowerCase()
+
+  if (!palavra) return produtos
+
+  return produtos.filter(livro =>
+    livro.titulo.toLowerCase().includes(palavra) 
+    // || livro.autor.toLowerCase().includes(palavra)
+  )
+})
+
 let teste = ref(false);
 
 import Filter from '../Filter.vue';
@@ -99,7 +115,7 @@ const livrosFiltrados = computed(() => {
 
 <div v-show="teste == true">
 <p>
-    eu sou um teste 
+    eu sou um teste
 </p>
 <ButtonChild @clique="teste = false">
 Fechar
@@ -118,7 +134,7 @@ ul {
     gap: 5vw;
     margin: 10vw 0 0 0;
     list-style: none;
-} 
+}
 
 li img {
     width: 150px;
