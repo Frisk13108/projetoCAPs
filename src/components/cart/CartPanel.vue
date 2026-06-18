@@ -1,5 +1,9 @@
 <script setup>
 
+import router from '@/router';
+import ProductList from '../products/ProductList.vue';
+import { ref } from 'vue';
+// let semItens = ref(true);
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import CartItem from './CartItem.vue';
 import router from '@/router/index.js';
