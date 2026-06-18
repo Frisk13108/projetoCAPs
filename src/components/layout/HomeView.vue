@@ -1,6 +1,10 @@
 <script setup>
 // Este arquivo é um componente Vue que representa a página inicial do aplicativo. Ele pode conter uma mensagem de boas-vindas, destaques dos produtos ou qualquer outra informação relevante para os visitantes que acessam o site pela primeira vez. O conteúdo específico da página inicial pode ser personalizado conforme as necessidades do projeto, mas geralmente serve como um ponto de entrada para os usuários explorarem o restante do site. Como sugestão, vocês poderão adicionar uma seção de "Destaques" ou "Novidades" para mostrar os produtos mais recentes ou populares, incentivando os visitantes a navegarem para a página de produtos.
 import { produtos } from '@/data/product'
+import ProductList from '../products/ProductList.vue';
+import { computed } from 'vue';
+
+
 </script>
 
 <template>
@@ -24,7 +28,7 @@ import { produtos } from '@/data/product'
       </div>
     </section>
 
-    <section>
+    <section class="coisas">
       <div>
         Frete Grátis para SC
       </div>
@@ -40,6 +44,7 @@ import { produtos } from '@/data/product'
     <h2>
       Mais Vendidos
     </h2>
+    <ProductList></ProductList>
   </main>
   <footer>
     <div>
@@ -58,6 +63,12 @@ import { produtos } from '@/data/product'
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1, h2, h3 {
+  font-family: "Raleway";
+}
+
 .textodestaque {
   color: #7700ff;
   border: 2px solid #7700ff;
@@ -104,6 +115,20 @@ p {
 
 .padrao img {
   width: 18vw;
+}
+.coisas {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  border-top: 2px solid #250050;
+  border-bottom: 2px solid #250050
+}
+.coisas div {
+  flex: 1;
+  padding: 15px;
+  font-size: 1vw;
+  border-right: 2px solid #250050;
+  text-align: center;
 }
 
 footer {

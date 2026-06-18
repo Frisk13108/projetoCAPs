@@ -8,6 +8,7 @@ export const produtos = [
       'Fogo & Sangue narra a história da dinastia Targaryen em Westeros, da conquista de Aegon I até a sangrenta guerra civil que dizimou seus dragões. Escrito como uma crônica, o livro detalha a ascensão e queda da família e serve como base para a série A Casa do Dragão.',
     preco: 199.9,
     capa: '/images/fire-and-blood.jpg',
+    vendidos: 999,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ export const produtos = [
       'Charlie tenta superar o passado, mas novos assassinatos revelam monstros biomecânicos e ilusórios criados por William Afton.Ela é caçada implacavelmente pelos terríveis animatrônicos Distorcidos, culminando em um desfecho brutal e surpreendente.',
     preco: 149.9,
     capa: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS0iSvfOI3-4Rv0jcRfZwtu-IG3TAIWvcSGw&s',
+    vendidos: 160,
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ export const produtos = [
       'O Livro de Regras é o primeiro conteúdo de Ordem Paranormal RPG, jogo oficial do universo criado por Cellbit. Anunciado em novembro de 2021, o sistema introduz a base e os conceitos para criar personagens e histórias desse cenário.',
     preco: 249.9,
     capa: 'https://m.media-amazon.com/images/I/81CJ-m4FlZL._AC_UF1000,1000_QL80_.jpg://covers.openlibrary.org/b/isbn/9781593279509-L.jpg',
+    vendidos: 6767676,
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const produtos = [
     resenha: 'O corretor de imóveis Jonathan Harker viaja para a transilvânia para vender uma propiedade ao conde Drácula',
     preco: 159.9,
     capa: 'https://imagens.disal.com.br/produtos/ampliada/5697026.jpg',
+    vendidos: 67,
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export const produtos = [
       'Bilbo, o hobbit, entra em aventura épica liderada pelo grande Gandalf, o mago, Thorin e seus comparças anões para reconquistar a montanha',
     preco: 159.9,
     capa: 'https://m.media-amazon.com/images/I/91M9xPIf10L.jpg',
+    vendidos: 69,
   },
   {
     id: 6,
@@ -51,6 +56,7 @@ export const produtos = [
     resenha: 'Um pouco sobre o processo de desenvolvimento do jogo Undertale',
     preco: 199.9,
     capa: 'https://r2.gallerynucleus.com/nucleus/nucleus-production/assets/attachments_p/000/102/043/original_IMG_9403.webp',
+    vendidos: 250,
   },
   {
     id: 7,
@@ -60,6 +66,7 @@ export const produtos = [
       'Guia para ser legal escrito pelo garndioso e másculo herói de Gothan City, Batman',
     preco: 139.9,
     capa: 'https://m.media-amazon.com/images/I/81I+UJdG9OL._AC_UF1000,1000_QL80_.jpg',
+    vendidos: 850,
   },
   {
     id: 8,
@@ -68,6 +75,7 @@ export const produtos = [
     resenha: 'Um romance improvével entre o filho da presidente dos EUA e o príncipe da Inglaterra',
     preco: 299.9,
     capa: 'https://m.media-amazon.com/images/I/71ugcKCFW7L._AC_UF1000,1000_QL80_.jpg',
+    vendidos: 76,
   },
 ]
 
