@@ -32,7 +32,7 @@ watch(busca, (novoValor) => {
     <div class="pesquisa">
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="pesquisar" />
     </div>
-    <div>
+    <div class="filtro">
       <Filter @filtrar="categoriaSelecionada = $event"></Filter>
     </div>
   </header>
@@ -44,7 +44,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: #f8f8f8;
+  background: #250050;
   z-index: 100;
   padding: 16px;
   border-bottom: 1px solid #ddd;
@@ -59,7 +59,7 @@ nav {
 }
 a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
 }
 .router-link-active {
   font-weight: bold;
@@ -76,6 +76,10 @@ ul {
 .pesquisar {
   border-radius: 5vw;
   padding: 6px 20px 6px 20px;
-  border: rebeccapurple solid 2px;
+  border:
+ rebeccapurple solid 2px;
+}
+.filtro {
+  margin: 0 100vw 0 0;
 }
 </style>

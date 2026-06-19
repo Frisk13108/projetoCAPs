@@ -13,7 +13,7 @@ import { useRoute } from 'vue-router'
 import Filter from '../Filter.vue';
 // props/////////////////////////////
 
-defineProps(['nome', 'id', 'resenha', 'autor'])
+defineProps(['nome', 'id', 'resenha', 'autor', 'vendidos'])
 let existe = false;
 
 
