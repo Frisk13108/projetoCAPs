@@ -4,6 +4,14 @@ import { produtos } from '@/data/product'
 import ProductList from '../products/ProductList.vue';
 import { computed } from 'vue';
 
+const maiorPreco = computed(() => {
+
+  return [...produtos].sort(
+    (a, b) => b.vendidos - a.vendidos
+  )
+
+})
+
 
 </script>
 
@@ -38,19 +46,31 @@ import { computed } from 'vue';
       <div>
         Mais Vendidos
       </div>
-      
+
     </section>
 
     <h2>
       Mais Vendidos
     </h2>
-    <ProductList></ProductList>
+    <ul>
+      <li v-for="livro in maiorPreco.slice(0, 5)" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco"
+        :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa">
+        <img :src="livro.capa" :alt="livro.titulo">
+        <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild>
+        </h3>
+        <p class="autor">{{ livro.autor }}</p>
+        <p class="preco">{{ livro.preco }}</p>
+      </li>
+    </ul>
+
   </main>
+
+
   <footer>
     <div>
       <nav>
         <RouterLink to="/">Home</RouterLink>
-       <RouterLink to="/produtos">Produtos</RouterLink>
+        <RouterLink to="/produtos">Produtos</RouterLink>
         <RouterLink to="/carrinho">Carrinho</RouterLink>
       </nav>
     </div>
@@ -65,7 +85,8 @@ import { computed } from 'vue';
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-h1, h2, h3 {
+h1,
+h2 {
   font-family: "Raleway";
 }
 
@@ -96,6 +117,7 @@ h1 {
   padding: 15px;
   font-size: 1vw;
 }
+
 .resenha {
   width: 20vw;
 }
@@ -116,6 +138,7 @@ p {
 .padrao img {
   width: 18vw;
 }
+
 .coisas {
   display: flex;
   justify-content: space-around;
@@ -123,6 +146,7 @@ p {
   border-top: 2px solid #250050;
   border-bottom: 2px solid #250050
 }
+
 .coisas div {
   flex: 1;
   padding: 15px;
@@ -131,6 +155,49 @@ p {
   text-align: center;
 }
 
+/*MAIS VENBDIUDS8*/
+
+
+li img {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5vw;
+  margin: 10vw 0 0 0;
+  list-style: none;
+}
+
+li h3 {
+  color: white;
+  font-size: 1vw;
+}
+
+li p.autor {
+  color: rgb(121, 140, 141);
+  font-size: 14px;
+}
+
+li p.preco {
+  color: green;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.favoritar {
+  color: rgb(255, 0, 0);
+  background-color: transparent;
+  border: 2px solid transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*FOOTER*/
+
 footer {
   background-color: #250050;
   display: flex;
@@ -138,10 +205,11 @@ footer {
   padding: 3vw 3vw;
   font-size: 1vw;
 }
+
 footer nav {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    list-style: none;
-    color: black;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  list-style: none;
+  color: black;
 }
 </style>

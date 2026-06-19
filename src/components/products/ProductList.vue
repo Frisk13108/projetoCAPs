@@ -9,13 +9,12 @@ import { ref, computed } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
-import { formataPreco } from '@/utils/currencyUtils.js';
-
-import Filter from '../Filter.vue';
 import { useRoute } from 'vue-router'
+import Filter from '../Filter.vue';
+import { formataPreco } from '@/utils/currencyUtils.js';
 // props/////////////////////////////
 
-defineProps(['nome', 'id', 'resenha', 'autor'])
+defineProps(['nome', 'id', 'resenha', 'autor', 'vendidos'])
 let existe = false;
 
 
@@ -53,22 +52,33 @@ function fecharPopup() {
 
 
 
+
+
+
 const route = useRoute()
 
 const livrosFiltrados = computed(() => {
-  const palavra = (route.query.q || '').toLowerCase()
 
-  if (!palavra) return produtos
 
-  return produtos.filter(livro =>
-    livro.titulo.toLowerCase().includes(palavra) 
-    // || livro.autor.toLowerCase().includes(palavra)
+  if (categoriaSelecionada.value === 'Maior Preço') {
+    return [...produtos].sort(
+      (a, b) => b.preco - a.preco
+    )
+  }
+
+  if (categoriaSelecionada.value === 'Menor Preço') {
+    return [...produtos].sort(
+      (a, b) => a.preco - b.preco
+    )
+  }
+
+  return produtos.filter(
+    livro => livro.categoria === categoriaSelecionada.value
   )
+
 })
 
 let teste = ref(false);
-
-
 
 </script>
 
