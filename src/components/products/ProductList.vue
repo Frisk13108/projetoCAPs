@@ -52,13 +52,13 @@ function fecharPopup() {
 
 
 
+
+
+
 const route = useRoute()
 
 const livrosFiltrados = computed(() => {
 
-  if (!categoriaSelecionada.value) {
-    return produtos
-  }
 
   if (categoriaSelecionada.value === 'Maior Preço') {
     return [...produtos].sort(
@@ -94,7 +94,7 @@ let teste = ref(false);
                 <img :src="livro.capa" :alt="livro.titulo">
                 <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild></h3>
                 <p class="autor">{{ livro.autor }}</p>
-                <p class="preco">{{ formataPreco(livro.preco)}}</p>
+                <p class="preco">{{ formataPreco(livro.preco) }}</p>
                 <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
                  <ButtonChild @clique="abrirPopup(livro)"> Informações </ButtonChild>
                  
@@ -102,11 +102,11 @@ let teste = ref(false);
         </ul>
     </div>
 </section>
-<div v-if="mostrarPopup" class="overlay" @click.self="fecharPopup">
+<div v-if="mostrarPopup" class="overlay">
   <div class="popup">
     <h3>Título: {{ produtoSelecionado.titulo }}</h3>
     <h4>Autor: {{ produtoSelecionado.autor }}</h4>
-    <p>{{ produtoSelecionado.resenha }}</p>
+    <p> <span>Resenha:</span> {{ produtoSelecionado.resenha }}</p>
 
     <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
   </div>
@@ -162,7 +162,7 @@ li p.preco {
     font-size: 20px;
     cursor: pointer; 
 }
-/* modal */
+/* ============= modal ======================= */
 .overlay {
   position: fixed;
   top: 0;
@@ -170,18 +170,27 @@ li p.preco {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .popup {
-  background: white;
+  background: rgb(91, 25, 139);
   padding: 20px;
   border-radius: 12px;
   max-width: 400px;
   width: 90%;
-  color: black;
+  color: rgb(255, 255, 255);
+}
+
+.popup h3{
+  color: rgb(12, 240, 12);
+}
+.popup h4{
+  color: rgb(175, 210, 17);
+}
+.popup span{
+  color: rgb(227, 170, 13);
 }
 </style>

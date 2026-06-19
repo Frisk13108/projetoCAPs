@@ -12,23 +12,46 @@
     }
 
 
+defineProps(['produto']);
 
+function remover(produto) {
+  const posicao = produtosCarrinho.value.findIndex(item => item.id === produto.id);
 
+  if (posicao !== -1) {
+    produtosCarrinho.value.splice(posicao, 1);
+  }
+}
 
+function atualizarQuantidade(produto) {
+  if (produto.quantidade < 1 || !produto.quantidade) {
+    produto.quantidade = 1;
+  }
+}
 </script>
 
 <template>
-    <div>
-        <li :nome="produto.titulo" :capa="produto.capa" :preco="produto.preco" :key="produto.id">
-            <img :src="produto.capa" :alt="produto.capa">
-            <div class="texto">
-                <h3>{{ produto.titulo }}</h3>
-                <p>{{ formataPreco(produto.preco) }}</p>
-                <ButtonChild @clique="remover(produto)">Remover</ButtonChild>
-            </div>
-        </li>
-    </div>
+  <div>
+    <li :key="produto.id">
+      <img :src="produto.capa" :alt="produto.titulo">
 
+      <div class="texto">
+        <h3>{{ produto.titulo }}</h3>
+        <p>{{ produto.preco }}</p>
+
+        <ButtonChild @clique="remover(produto)">
+          Remover
+        </ButtonChild>
+
+        <input
+          id="qntd"
+          type="number"
+          min="1"
+          v-model.number="produto.quantidade"
+          @change="atualizarQuantidade(produto)"
+        >
+      </div>
+    </li>
+  </div>
 </template>
 
 <style scoped>
