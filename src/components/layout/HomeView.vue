@@ -3,6 +3,7 @@
 import { produtos } from '@/data/product'
 import ProductList from '../products/ProductList.vue';
 import { computed } from 'vue';
+import AppFooter from './AppFooter.vue';
 
 const maiorPreco = computed(() => {
 
@@ -65,21 +66,7 @@ const maiorPreco = computed(() => {
 
   </main>
 
-
-  <footer>
-    <div>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/produtos">Produtos</RouterLink>
-        <RouterLink to="/carrinho">Carrinho</RouterLink>
-      </nav>
-    </div>
-    <div>
-      <p>Contato:</p>
-      <p>(67)6767-7676</p>
-      <p>Capas@gmail.com</p>
-    </div>
-  </footer>
+  <AppFooter />
 </template>
 
 <style scoped>
@@ -131,7 +118,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2vw 10vw;
+  /* padding: 2vw 10vw; */
   margin: 5vw 10vw;
 }
 
@@ -198,18 +185,4 @@ li p.preco {
 
 /*FOOTER*/
 
-footer {
-  background-color: #250050;
-  display: flex;
-  justify-content: space-between;
-  padding: 3vw 3vw;
-  font-size: 1vw;
-}
-
-footer nav {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  list-style: none;
-  color: black;
-}
 </style>
