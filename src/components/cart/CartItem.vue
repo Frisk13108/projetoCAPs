@@ -3,6 +3,7 @@
 
     import { produtosCarrinho } from '@/data/produtosCarrinho';
     import ButtonChild from '../ButtonChild.vue';
+    import { formataPreco } from '@/utils/currencyUtils.js';
     defineProps(['produto']);
 
     function remover(produto){
@@ -22,7 +23,7 @@
             <img :src="produto.capa" :alt="produto.capa">
             <div class="texto">
                 <h3>{{ produto.titulo }}</h3>
-                <p>{{ produto.preco }}</p>
+                <p>{{ formataPreco(produto.preco) }}</p>
                 <ButtonChild @clique="remover(produto)">Remover</ButtonChild>
             </div>
         </li>

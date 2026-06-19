@@ -11,6 +11,7 @@ import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
 import { useRoute } from 'vue-router'
 import Filter from '../Filter.vue';
+import { formataPreco } from '@/utils/currencyUtils.js';
 // props/////////////////////////////
 
 defineProps(['nome', 'id', 'resenha', 'autor', 'vendidos'])
@@ -93,7 +94,7 @@ let teste = ref(false);
                 <img :src="livro.capa" :alt="livro.titulo">
                 <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild></h3>
                 <p class="autor">{{ livro.autor }}</p>
-                <p class="preco">{{ livro.preco }}</p>
+                <p class="preco">{{ formataPreco(livro.preco)}}</p>
                 <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
                  <ButtonChild @clique="abrirPopup(livro)"> Informações </ButtonChild>
                  

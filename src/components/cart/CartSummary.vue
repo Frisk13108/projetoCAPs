@@ -5,6 +5,7 @@ import { computed } from 'vue'
 import { produtosCarrinho } from '@/data/produtosCarrinho'
 import ButtonChild from '../ButtonChild.vue'
 import { useRouter } from 'vue-router'
+import { formataPreco } from '@/utils/currencyUtils.js'
 
 const router = useRouter()
 
@@ -36,7 +37,7 @@ function confirmar() {
             
 
             <h3>
-                Preço final: {{ precoFinal }}
+                Preço final: {{ formataPreco(precoFinal) }}
             </h3>
             
             <ButtonChild @clique="confirmar()">

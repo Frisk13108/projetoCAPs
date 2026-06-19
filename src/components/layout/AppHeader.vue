@@ -3,7 +3,6 @@
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { ref, watch } from 'vue'
 import Filter from '../Filter.vue';
-import { produtos } from '@/data/product.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
 const route = useRoute()
 const router = useRouter()
@@ -47,7 +46,6 @@ header {
   background: #250050;
   z-index: 100;
   padding: 16px;
-  border-bottom: 1px solid #ddd;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -78,8 +76,5 @@ ul {
   padding: 6px 20px 6px 20px;
   border:
  rebeccapurple solid 2px;
-}
-.filtro {
-  margin: 0 100vw 0 0;
 }
 </style>
