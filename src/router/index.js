@@ -4,11 +4,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/components/layout/HomeView.vue'
 import ProductList from '@/components/products/ProductList.vue'
 import CartPanel from '@/components/cart/CartPanel.vue'
+import CartSummary from '@/components/cart/CartSummary.vue'
 import Favoritos from '@/components/Favoritos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+  routes:[
     {
       path: '/',
       name: 'home',
@@ -25,11 +26,17 @@ const router = createRouter({
       component: CartPanel,
     },
     {
+      path: '/resumo',
+      name: 'resumoDaCompra',
+      component: CartSummary,
+    },
+    {
       path: '/favoritos',
       name: 'favoritos',
       component: Favoritos,
     },
   ],
 })
+
 
 export default router

@@ -11,6 +11,8 @@ import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
 import { formataPreco } from '@/utils/currencyUtils.js';
 
+import Filter from '../Filter.vue';
+import { useRoute } from 'vue-router'
 // props/////////////////////////////
 
 defineProps(['nome', 'id', 'resenha', 'autor'])
@@ -49,21 +51,25 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
-let teste = ref(false);
 
-import Filter from '../Filter.vue';
+
+const route = useRoute()
 
 const livrosFiltrados = computed(() => {
+  const palavra = (route.query.q || '').toLowerCase()
 
-  if (!categoriaSelecionada.value) {
-    return produtos
-  }
+  if (!palavra) return produtos
 
-  return produtos.filter(
-    livro => livro.categoria === categoriaSelecionada.value
+  return produtos.filter(livro =>
+    livro.titulo.toLowerCase().includes(palavra) 
+    // || livro.autor.toLowerCase().includes(palavra)
   )
-
 })
+
+let teste = ref(false);
+
+
+
 </script>
 
 
@@ -100,7 +106,7 @@ const livrosFiltrados = computed(() => {
 
 <div v-show="teste == true">
 <p>
-    eu sou um teste 
+    eu sou um teste
 </p>
 <ButtonChild @clique="teste = false">
 Fechar
@@ -119,7 +125,7 @@ ul {
     gap: 5vw;
     margin: 10vw 0 0 0;
     list-style: none;
-} 
+}
 
 li img {
     width: 150px;

@@ -1,2 +1,3 @@
 import { ref } from "vue";
-export const produtosCarrinho = ref([]);
+export const produtosCarrinho = ref([
+]);
