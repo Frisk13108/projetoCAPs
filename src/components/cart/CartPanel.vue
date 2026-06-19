@@ -50,6 +50,15 @@ function prosseguir () {
 </template>
 
 <style scoped>
+
+.carrinho {
+    align-items: center;
+    background-color: #250050;
+    border-radius: 2vw;
+    padding: 2vw 10vw;
+    margin-top: 5vw;
+}
+
 div.padrao{
     background-color: white;
     padding: 2vw 4vw;

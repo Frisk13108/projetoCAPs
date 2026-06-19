@@ -9,7 +9,6 @@ import { ref, computed } from 'vue';
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
-import { useRoute } from 'vue-router'
 import Filter from '../Filter.vue';
 import { formataPreco } from '@/utils/currencyUtils.js';
 // props/////////////////////////////
@@ -38,8 +37,7 @@ existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
                  }  
  }
  
-const mostrarPopup = ref(false);
-const produtoSelecionado = ref(null);
+
 
 function abrirPopup(produto) {
   produtoSelecionado.value = produto;
@@ -50,14 +48,18 @@ function fecharPopup() {
   mostrarPopup.value = false;
 }
 
+// const route = useRoute()
 
-
-
-
-
-const route = useRoute()
-
+const mostrarPopup = ref(false);
+const produtoSelecionado = ref(null);
 const livrosFiltrados = computed(() => {
+
+  if (
+    !categoriaSelecionada.value ||
+    categoriaSelecionada.value === 'Todos'
+  ) {
+    return produtos
+  }
 
 
   if (categoriaSelecionada.value === 'Maior Preço') {
@@ -78,7 +80,6 @@ const livrosFiltrados = computed(() => {
 
 })
 
-let teste = ref(false);
 
 </script>
 
@@ -110,18 +111,6 @@ let teste = ref(false);
 
     <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
   </div>
-</div>
-
-  
-
-<div v-show="teste == true">
-<p>
-    eu sou um teste
-</p>
-<ButtonChild @clique="teste = false">
-Fechar
-</ButtonChild>
-
 </div>
 
 </template>

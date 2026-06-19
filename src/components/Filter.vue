@@ -5,18 +5,8 @@ import { categorias } from '@/data/categorias';
 const emit = defineEmits(['filtrar'])
 const mostrarFiltro = ref(false)
 const categoriaSelecionada = ref('')
-const produtos = ''
-const livrosFiltrados = computed(() => {
 
-  if (!categoriaSelecionada.value) {
-    return produtos
-  }
 
-  return produtos.filter(
-    livro => livro.categoria === categoriaSelecionada.value
-  )
-
-})
 
 </script>
 

@@ -4,12 +4,8 @@
     import { produtosCarrinho } from '@/data/produtosCarrinho';
     import ButtonChild from '../ButtonChild.vue';
     import { formataPreco } from '@/utils/currencyUtils.js';
-    defineProps(['produto']);
+    
 
-    function remover(produto){
-        const posicao = produtosCarrinho.value.findIndex(item => item.id === produto.id);
-        produtosCarrinho.value.splice(posicao, 1);
-    }
 
 
 defineProps(['produto']);
@@ -30,13 +26,13 @@ function atualizarQuantidade(produto) {
 </script>
 
 <template>
-  <div>
+  <div class="bloco">
     <li :key="produto.id">
       <img :src="produto.capa" :alt="produto.titulo">
 
       <div class="texto">
         <h3>{{ produto.titulo }}</h3>
-        <p>{{ produto.preco }}</p>
+        <p>{{ formataPreco(produto.preco) }}</p>
 
         <ButtonChild @clique="remover(produto)">
           Remover
@@ -56,6 +52,12 @@ function atualizarQuantidade(produto) {
 
 <style scoped>
 
+.bloco li{
+    align-items: center;
+    gap: 10vw;
+}
+
+
     img {
         width: 150px;
         height: 220px;
@@ -63,8 +65,6 @@ function atualizarQuantidade(produto) {
     }
     li {
         display: flex;
-        background-color: chartreuse;
-        border: 1px solid #6e6e6e;
         border-radius: 1vw;
         padding: 1.5vw;
         margin: 1vw;
@@ -72,7 +72,7 @@ function atualizarQuantidade(produto) {
 
     h3 {
         font-weight: bold;
-        font-size: 1.5vw;
+        font-size: 1vw;
     }
 
     div.texto {
