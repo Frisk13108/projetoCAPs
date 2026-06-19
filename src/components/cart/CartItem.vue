@@ -66,7 +66,6 @@ function atualizarQuantidade(produto) {
     li {
         display: flex;
         border-radius: 1vw;
-        padding: 1.5vw;
         margin: 1vw;
     }
 
@@ -79,7 +78,7 @@ function atualizarQuantidade(produto) {
         margin: 1.5vw;
         display: flex;
         flex-direction: column;
-        gap: 2vw;
+        gap: 1vw;
     }
     
 
