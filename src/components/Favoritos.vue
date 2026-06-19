@@ -30,7 +30,7 @@ function remover(produto) {
                     <h3>{{ produto.titulo }}</h3>
                     <h4>{{ produto.autor }}</h4>
                     <p class="preco">{{ produto.preco }}</p>
-                    <ButtonChild @clique="remover(produto)">Remover</ButtonChild>
+                    <ButtonChild class="removerFavoritos" @clique="remover(produto)">Remover</ButtonChild>
                 </div>
             </div>
         </li>
@@ -45,12 +45,16 @@ ul{
     display: flex;
 }
 
+.removerFavoritos{
+    border: none;
+}
+
 
 
 div.padrao{
     background-color: rgb(200, 8, 229);
     padding: 4vw 8vw;
-border-radius: 16px;}
+    border-radius: 16px;}
 h1{
     color: rgb(0, 255, 60);
 }
@@ -67,7 +71,7 @@ img {
         object-fit: cover;
     }
     li {
-        display: flex;
+        display: table-column;
         background-color: chartreuse;
         border: 1px solid #6e6e6e;
         border-radius: 1vw;
@@ -86,5 +90,7 @@ img {
         flex-direction: column;
         gap: 2vw;
     }
+
+    
 
 </style>
