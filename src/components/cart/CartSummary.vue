@@ -18,6 +18,11 @@ function confirmar() {
   produtosCarrinho.value = []
   router.push('/carrinho')
 }
+
+function voltar(){
+    router.push('/carrinho')
+}
+
 </script>
 
 <template>
@@ -41,6 +46,10 @@ function confirmar() {
             
             <ButtonChild @clique="confirmar()">
                 Confirmar Compra
+            </ButtonChild>
+
+            <ButtonChild @clique="voltar()">
+                Voltar
             </ButtonChild>
             
 

@@ -1,6 +1,14 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 import { produtosFavoritos } from '@/data/produtosFavoritos';
-import { ref } from 'vue';
+import ButtonChild from './ButtonChild.vue';
+
+function remover(produto) {
+  const index = produtosFavoritos.value.findIndex(item => item.id === produto.id);
+  if (index >= 0) {
+    produtosFavoritos.value.splice(index, 1);
+  }
+}
 </script>
 
 <template>
@@ -15,8 +23,16 @@ import { ref } from 'vue';
 </div>
 <div class="favoritos">
     <ul>
-        <li v-for="produto in produtosFavoritos" v-show="produtosFavoritos.length >= 1">
-            {{ produto }}
+        <li v-for="produto in produtosFavoritos" :nome="produto.titulo" :capa="produto.capa" :preco="produto.preco" :key="produto.id" :autor="produto.autor" v-show="produtosFavoritos.length >= 1"> 
+            <div>
+                <img :src="produto.capa" :alt="produto.capa">
+                <div class="texto">
+                    <h3>{{ produto.titulo }}</h3>
+                    <h4>{{ produto.autor }}</h4>
+                    <p class="preco">{{ produto.preco }}</p>
+                    <ButtonChild class="removerFavoritos" @clique="remover(produto)">Remover</ButtonChild>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
@@ -24,10 +40,21 @@ import { ref } from 'vue';
 </template>
 
 <style scoped>
+
+ul{
+    display: flex;
+}
+
+.removerFavoritos{
+    border: none;
+}
+
+
+
 div.padrao{
     background-color: rgb(200, 8, 229);
     padding: 4vw 8vw;
-border-radius: 16px;}
+    border-radius: 16px;}
 h1{
     color: rgb(0, 255, 60);
 }
@@ -37,5 +64,33 @@ p{
 a{
     color: rgb(0, 255, 30);
 }
+
+img {
+        width: 150px;
+        height: 220px;
+        object-fit: cover;
+    }
+    li {
+        display: table-column;
+        background-color: chartreuse;
+        border: 1px solid #6e6e6e;
+        border-radius: 1vw;
+        padding: 1.5vw;
+        margin: 1vw;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 1.5vw;
+    }
+
+    div.texto {
+        margin: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    
 
 </style>
