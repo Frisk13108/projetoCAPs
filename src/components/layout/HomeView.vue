@@ -57,8 +57,7 @@ const maiorPreco = computed(() => {
       <li v-for="livro in maiorPreco.slice(0, 5)" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco"
         :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa">
         <img :src="livro.capa" :alt="livro.titulo">
-        <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild>
-        </h3>
+        <h3>{{ livro.titulo }}</h3>
         <p class="autor">{{ livro.autor }}</p>
         <p class="preco">{{ livro.preco }}</p>
       </li>
@@ -66,7 +65,20 @@ const maiorPreco = computed(() => {
 
   </main>
 
-  <AppFooter />
+   <footer>
+    <div>
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/produtos">Produtos</RouterLink>
+        <RouterLink to="/carrinho">Carrinho</RouterLink>
+      </nav>
+    </div>
+    <div>
+      <p>Contato:</p>
+      <p>(67)6767-7676</p>
+      <p>Capas@gmail.com</p>
+    </div>
+  </footer>
 </template>
 
 <style scoped>
@@ -184,5 +196,25 @@ li p.preco {
 }
 
 /*FOOTER*/
+
+footer {
+  align-items: center;
+  background-color: #250050;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5vw 1.5vw;
+  font-size: 1vw;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+footer nav {
+    display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  list-style: none;
+  color: black;
+  gap: 1vw;
+}
 
 </style>

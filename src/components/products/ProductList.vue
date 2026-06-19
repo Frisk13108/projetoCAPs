@@ -4,82 +4,48 @@
 // imports ////////////////////
 
 import { produtos } from '@/data/product';
-import ButtonChild from '../ButtonChild.vue';
 import { ref, computed } from 'vue';
-import { produtosCarrinho } from '@/data/produtosCarrinho.js';
-import { produtosFavoritos } from '@/data/produtosFavoritos.js';
 import { categoriaSelecionada } from '@/data/filtroCategoria.js';
-import Filter from '../Filter.vue';
-import { formataPreco } from '@/utils/currencyUtils.js';
-// props/////////////////////////////
+import ProductCard from './ProductCard.vue';
+import { useRoute } from 'vue-router'
 
-defineProps(['nome', 'id', 'resenha', 'autor', 'vendidos'])
-let existe = false;
+const route = useRoute()
 
-
-// functions /////////////////////////////////
-
- function adcionarFavoritos(livro){
-  existe = produtosFavoritos.value.findIndex(p => p.titulo == livro.titulo);
-   if(existe == -1){
-                    produtosFavoritos.value.push(livro)
-                 }else{
-                    alert("Este livro já foi favoritado!")
-                 }  
- }
-
- function adcionarCarrinho(livro){
-existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
-   if(existe == -1){
-                    produtosCarrinho.value.push(livro)
-                 }else{
-                    produtosCarrinho.value[existe].quantidade++
-                 }  
- }
- 
-
-
-function abrirPopup(produto) {
-  produtoSelecionado.value = produto;
-  mostrarPopup.value = true;
-}
-
-function fecharPopup() {
-  mostrarPopup.value = false;
-}
-
-// const route = useRoute()
-
-const mostrarPopup = ref(false);
-const produtoSelecionado = ref(null);
 const livrosFiltrados = computed(() => {
 
-  if (
-    !categoriaSelecionada.value ||
-    categoriaSelecionada.value === 'Todos'
+  let resultado = [...produtos]
+  const busca = (route.query.q ?? '').toLowerCase()
+
+  if (busca) {
+    resultado = resultado.filter(livro =>
+      livro.titulo.toLowerCase().includes(busca)
+    )
+  }
+
+   if (
+    categoriaSelecionada.value &&
+    categoriaSelecionada.value !== 'Todos'
   ) {
-    return produtos
+
+    if (categoriaSelecionada.value === 'Maior Preço') {
+      resultado.sort((a, b) => b.preco - a.preco)
+    }
+
+    else if (categoriaSelecionada.value === 'Menor Preço') {
+      resultado.sort((a, b) => a.preco - b.preco)
+    }
+
+    else {
+      resultado = resultado.filter(
+        livro => livro.categoria === categoriaSelecionada.value
+      )
+    }
   }
 
+  return resultado
 
-  if (categoriaSelecionada.value === 'Maior Preço') {
-    return [...produtos].sort(
-      (a, b) => b.preco - a.preco
-    )
-  }
-
-  if (categoriaSelecionada.value === 'Menor Preço') {
-    return [...produtos].sort(
-      (a, b) => a.preco - b.preco
-    )
-  }
-
-  return produtos.filter(
-    livro => livro.categoria === categoriaSelecionada.value
-  )
 
 })
-
 
 </script>
 
@@ -90,96 +56,23 @@ const livrosFiltrados = computed(() => {
 <section>
     
     <div class="container">
-        <ul>
-            <li v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" >
-                <img :src="livro.capa" :alt="livro.titulo">
-                <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild></h3>
-                <p class="autor">{{ livro.autor }}</p>
-                <p class="preco">{{ formataPreco(livro.preco) }}</p>
-                <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
-                 <ButtonChild @clique="abrirPopup(livro)"> Informações </ButtonChild>
-                 
-            </li>
-        </ul>
+       
+            <ProductCard v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" 
+            />
+        
     </div>
 </section>
-<div v-if="mostrarPopup" class="overlay">
-  <div class="popup">
-    <h3>Título: {{ produtoSelecionado.titulo }}</h3>
-    <h4>Autor: {{ produtoSelecionado.autor }}</h4>
-    <p> <span>Resenha:</span> {{ produtoSelecionado.resenha }}</p>
-
-    <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
-  </div>
-</div>
 
 </template>
 
 <style scoped>
 
 
-ul {
+.container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 5vw;
-    margin: 10vw 0 0 0;
     list-style: none;
-}
-
-li img {
-    width: 150px;
-    height: 220px;
-    object-fit: cover;
-}
-li h3 {
-    color: white;
-    font-size: 1vw;
-}
-li p.autor {
-    color: rgb(121, 140, 141);
-    font-size: 14px;
-}
-li p.preco {
-    color: green;
-    font-weight: bold;
-    font-size: 1rem;
-}
-.favoritar{
-    color: rgb(255, 0, 0);
-    background-color: transparent; 
-    border: 2px solid transparent;
-    font-size: 20px;
-    cursor: pointer; 
-}
-/* ============= modal ======================= */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.popup {
-  background: rgb(91, 25, 139);
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 90%;
-  color: rgb(255, 255, 255);
-}
-
-.popup h3{
-  color: rgb(12, 240, 12);
-}
-.popup h4{
-  color: rgb(175, 210, 17);
-}
-.popup span{
-  color: rgb(227, 170, 13);
+    place-items: center;
+    align-items: center;
 }
 </style>
