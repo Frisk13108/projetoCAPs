@@ -56,8 +56,10 @@ function fecharPopup() {
             </h3>
             <p class="autor">{{ livro.autor }}</p>
             <p class="preco">{{ formataPreco(livro.preco) }}</p>
-            <ButtonChild @clique="adcionarCarrinho(livro)"> Adcionar </ButtonChild>
-            <ButtonChild @clique="abrirPopup(livro)"> Informações </ButtonChild>
+            <div class="botoes">
+                <ButtonChild class="adicionar" @clique="adcionarCarrinho(livro)">Adcionar ao Carrinho</ButtonChild>
+                <ButtonChild class="info" @clique="abrirPopup(livro)"> Informações </ButtonChild>
+            </div>
         </li>
     </ul>
 
@@ -70,6 +72,7 @@ function fecharPopup() {
                 <p> <span>Resenha:</span> {{ produtoSelecionado.resenha }}</p>
 
                 <ButtonChild class="fechar" @clique="fecharPopup">Fechar</ButtonChild>
+                <ButtonChild class="adicionar-p" @clique="adcionarCarrinho(livro)"> Adcionar ao Carrinho</ButtonChild>
             </div>
         </div>
     </div>
@@ -126,6 +129,37 @@ li p.preco {
     cursor: pointer;
 }
 
+/* NOTOESSSS */
+
+.botoes {
+    align-items: center;
+}
+
+.adicionar-p {
+    padding: 10px 30px;
+    border: solid 2px white;
+    border-radius: 30px;
+    color: white;
+    background-color:transparent;
+}
+
+.adicionar {
+    padding: 5px 30px;
+    border: solid 2px blueviolet;
+    border-radius: 30px;
+    color: blueviolet;
+    background-color:transparent;
+}
+
+.info {
+    margin-top: 10px;
+    padding: 10px 30px;
+    border: solid 2px white;
+    color: white;
+    border-radius: 30px;
+    background-color: transparent;
+}
+
 /* ============= modal ======================= */
 .overlay {
     position: fixed;
@@ -164,20 +198,23 @@ li p.preco {
     color: white;
     font-weight: bold;
 }
+
 .popup p {
     font-size: 15px;
     width: 900px;
 }
+
 .fechar {
     margin-top: 2vw;
+    margin-right: 10px;
     border: none;
     padding: 10px 30px;
     border-radius: 30px;
 }
+
 .popup img {
     width: 250px;
     height: 380px;
     object-fit: cover;
 }
-
 </style>
