@@ -1,4 +1,4 @@
-
+<script setup>
     import { produtosCarrinho } from '@/data/produtosCarrinho';
     import ButtonChild from '../ButtonChild.vue';
     import { formataPreco } from '@/utils/currencyUtils.js';
