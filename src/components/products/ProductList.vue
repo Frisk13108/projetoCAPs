@@ -22,7 +22,7 @@ const livrosFiltrados = computed(() => {
     )
   }
 
-   if (
+  if (
     categoriaSelecionada.value &&
     categoriaSelecionada.value !== 'Todos'
   ) {
@@ -53,25 +53,27 @@ const livrosFiltrados = computed(() => {
 <template>
 
 
-<section>
-    
+  <section>
+
     <div class="container">
-       
-            <ProductCard v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" :id="livro.id" />
-        
+
+      <ProductCard v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco"
+        :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" :id="livro.id" />
+
     </div>
-</section>
+  </section>
 
 </template>
 
 <style scoped>
-
-
-.container{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    list-style: none;
-    place-items: center;
-    align-items: center;
+.container {
+  margin-top: 5vw;
+  margin-bottom: 3vw;
+  gap: 6vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  place-items: center;
+  align-items: center;
 }
 </style>

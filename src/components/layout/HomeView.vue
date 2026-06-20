@@ -42,7 +42,7 @@ const maiorPreco = computed(() => {
           Frete Grátis para SC
       </div>
       <div>
-          ★ LIvros Recomentados
+         <RouterLink to="/recomendados">★ LIvros Recomentados</RouterLink>
       </div>
       <div>
           Mais Vendidos
@@ -71,6 +71,7 @@ const maiorPreco = computed(() => {
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/produtos">Produtos</RouterLink>
         <RouterLink to="/carrinho">Carrinho</RouterLink>
+        <RouterLink to="/favoritos">Favoritos</RouterLink>
       </nav>
     </div>
     <div>
@@ -154,6 +155,9 @@ p {
   text-align: center;
   font-weight: bold;
 
+}
+.coisas div a {
+  font-weight: bold;
 }
 
 /*MAIS VENBDIUDS8*/

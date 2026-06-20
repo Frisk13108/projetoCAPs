@@ -49,7 +49,8 @@ function fecharPopup() {
 
 <template>
 
-    <ul>
+    <div class="teste">
+        
         <li>
             <img :src="livro.capa" :alt="livro.titulo">
             <h3>{{ livro.titulo }} <ButtonChild @clique="adcionarFavoritos(livro)" class="favoritar">❤︎</ButtonChild>
@@ -61,7 +62,8 @@ function fecharPopup() {
                 <ButtonChild class="info" @clique="abrirPopup(livro)"> Informações </ButtonChild>
             </div>
         </li>
-    </ul>
+        
+    </div>
 
     <div v-if="mostrarPopup" class="overlay">
         <div class="popup">
@@ -93,7 +95,6 @@ ul {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1vw;
-    margin: 9vw 0 1vw 0;
     list-style: none;
     align-items: center;
     place-items: center;

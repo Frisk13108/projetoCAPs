@@ -64,9 +64,8 @@ ul {
 
 
 div.padrao {
-    align-items: center;
     background-color: #250050;
-    padding: 2vw 8vw;
+    padding: 2vw 4vw;
     border-radius: 16px;
 }
 

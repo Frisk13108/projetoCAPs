@@ -1,11 +1,12 @@
 <script setup>
 // Este arquivo é um componente Vue que representa o último resumo do carrinho de compras, exibindo o total geral e um botão para finalizar a compra.
 
-import { computed } from 'vue'
+import { computed, isProxy } from 'vue'
 import { produtosCarrinho } from '@/data/produtosCarrinho'
 import ButtonChild from '../ButtonChild.vue'
 import { useRouter } from 'vue-router'
 import { formataPreco } from '@/utils/currencyUtils.js'
+import { carrinho, addCarrinho, cupomDigitado, percentualDesconto, aplicarCupom, totalComDesconto} from '@/utils/cartUtils.js';
 
 const router = useRouter()
 
@@ -14,6 +15,8 @@ const precoFinal = computed(() => {
         return total + produto.preco * (produto.quantidade ?? 1)
     }, 0)
 })
+
+
 
 function confirmar() {
     produtosCarrinho.value = []
@@ -45,8 +48,10 @@ function voltar() {
             </p>
 
             <h3>
-                Preço final: {{ formataPreco(precoFinal) }}
+                Subtotal: {{ formataPreco(precoFinal) }}
             </h3>
+            
+            <h3>Total: {{ formataPreco(totalComDesconto) }}</h3>
 
             <div>
                 <ButtonChild class="confirmar" @clique="confirmar()">

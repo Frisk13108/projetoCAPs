@@ -57,6 +57,8 @@ h1, h2, h3, p  {
     font-family: 'Raleway';
 }
 
+
+
 .remover {
   background-color: rgb(255, 255, 255);
   border-radius: 30px;

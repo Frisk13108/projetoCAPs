@@ -2,6 +2,8 @@
 //Exemplo: Remover itens do carrinho, adicionar quantidade para o item já no carrinho, remover quantidade para o item já no carrinho, calcular o total do carrinho, filtrar livros por autor, por preço, etc. Vocês podem criar funções para cada uma dessas funcionalidades e exportá-las para serem usadas em outros componentes do aplicativo, como o ProductList.vue, onde o usuário poderá filtrar os livros disponíveis, ou no CartPanel.vue, onde o usuário poderá gerenciar os itens em seu carrinho de compras.
 
 import { produtos } from '@/data/product'
+import { ref, computed } from 'vue'
+
 
 const carrinho = [
   {
@@ -56,4 +58,42 @@ function addCarrinho(idLivro, quantidade) {
   }
 }
 
-export { carrinho, addCarrinho }
+const cupomDigitado = ref('')
+const percentualDesconto = ref(0)
+import { produtosCarrinho } from '@/data/produtosCarrinho'
+
+const total = computed(() => {
+    return produtosCarrinho.value.reduce((total, produto) => {
+        return total + produto.preco * (produto.quantidade ?? 1)
+    }, 0)
+})
+
+function aplicarCupom() {
+  if (cupomDigitado.value === 'DESCONTO10') {
+    percentualDesconto.value = 10
+    alert('Cupom Validado')
+  }
+  else if (cupomDigitado.value === 'DESCONTO20') {
+    percentualDesconto.value = 20
+    alert('Cupom Validado')
+  }
+  else if (cupomDigitado.value === 'AURA67') {
+    percentualDesconto.value = 30
+    alert('Cupom Validado')
+  }
+  else if (cupomDigitado.value === 'CUPOM5') {
+    percentualDesconto.value = 5
+    alert('Cupom Validado')
+  }
+  else {
+    percentualDesconto.value = 0
+    alert('Cupom inválido')
+  }
+
+    console.log(percentualDesconto.value)
+}
+
+const totalComDesconto = computed(() => {
+    return total.value - (total.value * percentualDesconto.value) / 100
+})
+export { carrinho, addCarrinho, cupomDigitado, percentualDesconto, aplicarCupom, totalComDesconto, total }
