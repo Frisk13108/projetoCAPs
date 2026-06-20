@@ -77,9 +77,10 @@ ul {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1vw;
-    margin: 10vw 0 0 0;
+    margin: 9vw 0 0 0;
     list-style: none;
     align-items: center;
+    place-items: center;
 }
 
 li img {

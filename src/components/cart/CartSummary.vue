@@ -10,17 +10,17 @@ import { formataPreco } from '@/utils/currencyUtils.js'
 const router = useRouter()
 
 const precoFinal = computed(() => {
-  return produtosCarrinho.value.reduce((total, produto) => {
-    return total + produto.preco * (produto.quantidade ?? 1)
-  }, 0)
+    return produtosCarrinho.value.reduce((total, produto) => {
+        return total + produto.preco * (produto.quantidade ?? 1)
+    }, 0)
 })
 
 function confirmar() {
-  produtosCarrinho.value = []
-  router.push('/carrinho')
+    produtosCarrinho.value = []
+    router.push('/carrinho')
 }
 
-function voltar(){
+function voltar() {
     router.push('/carrinho')
 }
 
@@ -39,40 +39,69 @@ function voltar(){
                     </p>
                 </li>
             </ul>
-            
+
+            <p class="frete">
+                Frete: Grátis
+            </p>
 
             <h3>
                 Preço final: {{ formataPreco(precoFinal) }}
             </h3>
-            
-            <ButtonChild @clique="confirmar()">
-                Confirmar Compra
-            </ButtonChild>
 
-            <ButtonChild @clique="voltar()">
-                Voltar
-            </ButtonChild>
-            
+            <div>
+                <ButtonChild class="confirmar" @clique="confirmar()">
+                    Confirmar Compra
+                </ButtonChild>
+
+                <ButtonChild class="botao" @clique="voltar()">
+                    Voltar
+                </ButtonChild>
+            </div>
+
 
         </div>
     </div>
-    
-    
+
+
 </template>
 
 <style scoped>
+h1 {
+    margin-bottom: 1vw;
+}
 
-    div.compraFinal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: chartreuse;
-        border: 1px solid #000000;
-        padding: 2vw;
-        border-radius: 1vw;
-        align-items: center;
-        justify-content: center;
-    }
+ul {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+}
 
+h3 {
+    margin-bottom: 1vw;
+}
+.frete{
+    font-size: 1vw;
+}
+.botao {
+    margin-left: 1vw;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+.confirmar {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+
+div.compraFinal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #250050;
+    padding: 4vw;
+    border-radius: 1vw;
+    align-items: center;
+}
 </style>

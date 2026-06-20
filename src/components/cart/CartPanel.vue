@@ -2,18 +2,25 @@
 
 import router from '@/router';
 import ProductList from '../products/ProductList.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 // let semItens = ref(true);
 import { produtosCarrinho } from '@/data/produtosCarrinho.js';
 import CartItem from './CartItem.vue';
 import ButtonChild from '../ButtonChild.vue';
+import { formataPreco } from '@/utils/currencyUtils.js';
 
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
 
 
 let precoFinal = 0;
 
-function prosseguir () {
+const total = computed(() => {
+  return produtosCarrinho.value.reduce((total, produto) => {
+    return total + produto.preco * (produto.quantidade ?? 1)
+  }, 0)
+})
+
+function prosseguir() {
     router.push('/resumo');
 
     for (let produto of produtosCarrinho) {
@@ -24,32 +31,60 @@ function prosseguir () {
 </script>
 
 <template>
-<div class="padrao" v-show="produtosCarrinho.length === 0">
-    <h1>
-        Opa!
-    </h1>
-    <p>
-        Parece que ainda não ha nenhum item em seu carrinho, clique <a href="/produtos">aqui</a> para ver nosso catálogo.
-    </p>
+    <div class="padrao" v-show="produtosCarrinho.length === 0">
+        <h1>
+            Opa!
+        </h1>
+        <p>
+            Parece que ainda não ha nenhum item em seu carrinho, clique <a href="/produtos">aqui</a> para ver nosso
+            catálogo.
+        </p>
 
-</div>
+    </div>
 
-<div class="carrinho">
-    <ul>
-        <CartItem v-for="produto in produtosCarrinho" :key="produto.id" :produto="produto" v-show="produtosCarrinho.length >= 1">
-        </CartItem>
-    </ul>
-</div>
+    <div class="carrinho">
+        <ul>
+            <CartItem v-for="produto in produtosCarrinho" :key="produto.id" :produto="produto"
+                v-show="produtosCarrinho.length >= 1">
+            </CartItem>
+        </ul>
+        <div class="tudo" v-show="produtosCarrinho.length >= 1">
+            <ButtonChild class="prosseguir" @clique="prosseguir()">
+                Prosseguir
+            </ButtonChild>
+            <h3>
+                Preço Total: {{ formataPreco(total) }}
+            </h3>
+        </div>
+    </div>
 
-<div class="prosseguir" v-show="produtosCarrinho.length >= 1">
-    <ButtonChild @clique="prosseguir()">
-        Prosseguir
-    </ButtonChild>
-</div>
+
 
 </template>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1, h2, h3, p  {
+    font-family: 'Raleway';
+}
+
+.tudo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2vw;
+}
+.tudo h3 {
+    font-weight: bold;
+}
+.prosseguir {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
 
 .carrinho {
     align-items: center;
@@ -59,18 +94,22 @@ function prosseguir () {
     margin-top: 5vw;
 }
 
-div.padrao{
-    background-color: white;
+div.padrao {
+    background-color: #250050;
     padding: 2vw 4vw;
-border-radius: 16px;}
-h1{
-    color: rgb(200, 8, 229);
+    border-radius: 16px;
 }
-p{
-    color: rgb(0, 0, 0);;
+
+h1 {
+    color: blueviolet;
 }
-a{
-    color: rgb(200, 8, 229);;
+
+p {
+    color: white;
+    ;
 }
-    
+
+a {
+    color: blueviolet;
+}
 </style>

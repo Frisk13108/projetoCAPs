@@ -34,7 +34,7 @@ function atualizarQuantidade(produto) {
         <h3>{{ produto.titulo }}</h3>
         <p>{{ formataPreco(produto.preco) }}</p>
 
-        <ButtonChild @clique="remover(produto)">
+        <ButtonChild class="remover" @clique="remover(produto)">
           Remover
         </ButtonChild>
 
@@ -51,6 +51,18 @@ function atualizarQuantidade(produto) {
 </template>
 
 <style scoped>
+
+.remover {
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  border: none;
+  padding: 10px;
+}
+
+p {
+  color: green;
+  font-weight: bold;
+}
 
 .bloco li{
     align-items: center;
