@@ -33,9 +33,9 @@ function voltar() {
                 Compra Final
             </h1>
             <ul>
-                <li v-for="produto in produtosCarrinho" :key="produto.titulo">
+                <li v-for="produto in produtosCarrinho" :key="produto.titulo" >
                     <p>
-                        {{ produto.titulo }};
+                        {{ produto.titulo }} {{ produto.quantidade }}x;
                     </p>
                 </li>
             </ul>
@@ -66,8 +66,15 @@ function voltar() {
 </template>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1, h2, h3, p  {
+    font-family: 'Raleway';
+}
 h1 {
     margin-bottom: 1vw;
+    font-weight: bold;
 }
 
 ul {

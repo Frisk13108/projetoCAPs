@@ -5,7 +5,7 @@ export const produtos = [
     titulo: 'Game of thrones: Fogo e Sangue',
     autor: 'George R. R. Martin',
     resenha:
-      'Fogo & Sangue narra a história da dinastia Targaryen em Westeros, da conquista de Aegon I até a sangrenta guerra civil que dizimou seus dragões. Escrito como uma crônica, o livro detalha a ascensão e queda da família e serve como base para a série A Casa do Dragão.',
+      'Séculos antes dos eventos de A guerra dos tronos, a Casa Targaryen – única família de senhores dos dragões a sobreviver à Destruição de Valíria – tomou residência em Pedra do Dragão. A história de Fogo e sangue começa com o lendário Aegon, o Conquistador, criador do Trono de Ferro, e segue narrando as gerações de Targaryen que lutaram para manter o assento, até a guerra civil que quase destruiu sua dinastia. O que realmente aconteceu durante a Dança dos Dragões? Por que era tão perigoso visitar Valíria depois da Destruição? Qual é a origem dos três ovos de dragão que chegaram a Daenerys? Essas são algumas das questões respondidas neste livro essencial, relatadas por um sábio meistre da Cidadela.Ricamente ilustrado com mais de oitenta imagens em preto e branco assinadas pelo artista Dough Wheatley, Fogo e sangue dará aos leitores uma nova e completa visão da fascinante história de Westeros – um livro imperdível para os fãs do autor.',
     preco: 199.9,
     capa: '/images/fire-and-blood.jpg',
     vendidos: 999,
@@ -17,7 +17,7 @@ export const produtos = [
     titulo: 'Os Distorcidos',
     autor: 'Scott Cawthon e Kira Breed-Wrisley',
     resenha:
-      'Charlie tenta superar o passado, mas novos assassinatos revelam monstros biomecânicos e ilusórios criados por William Afton. Ela é caçada implacavelmente pelos terríveis animatrônicos Distorcidos, culminando em um desfecho brutal e surpreendente.',
+      'Five Nights at Freddy’s é uma das maiores séries de jogos de terror de todos os tempos. Com cinco jogos e milhões de cópias vendidas, conquistou fãs no mundo todo por trazer à tona os medos mais obscuros que só brinquedos sinistros são capazes de provocar. Um universo agora expandido para uma série de livros coescritos pelo próprio criador dos jogos, Scott Cawthon. No primeiro volume, Olhos prateados, Charlie e seus amigos desvendam misteriosos assassinatos que aconteceram na Pizzaria Freddy Fazbear’s, um lugar tomado por perigosos animatrônicos. Agora em Os distorcidos, um ano se passou e Charlie continua assombrada por pesadelos. Para piorar, uma nova onda de assassinatos começa a acontecer e ela se pergunta: mas se todo o terror foi destruído junto com o que sobrou da pizzaria, o que estaria por trás dessas mortes?.',
     preco: 149.9,
     capa: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS0iSvfOI3-4Rv0jcRfZwtu-IG3TAIWvcSGw&s',
     vendidos: 160,
@@ -29,7 +29,7 @@ export const produtos = [
     titulo: 'Ordem Paranormal: O livro de regras do mestre',
     autor: 'Rafael "Cellbit" Lange',
     resenha:
-      'O Livro de Regras é o primeiro conteúdo de Ordem Paranormal RPG, jogo oficial do universo criado por Cellbit. Anunciado em novembro de 2021, o sistema introduz a base e os conceitos para criar personagens e histórias desse cenário.',
+      'O paranormal não vem para o nosso mundo de maneira fácil. Uma membrana separa e protege a Realidade do Outro Lado, a dimensão dos monstros e demônios. Essa barreira, porém, pode ser enfraquecida pelo Medo. Se aproveitando disso, cultistas fazem rituais para romper a membrana e invocar seres sobrenaturais, causando caos e destruição. Para impedir que esses planos malignos se concretizem, organizações de investigadores se mantêm em atividade por todo o globo. Contra o paranormal, esses agentes são nossa primeira e última linha de defesa. Neste RPG, você assume o papel de agente de uma dessas organizações, a Ordo Realitas, vivendo uma vida dupla enquanto se esforça para evitar a vitória do caos. Fazendo uso de sua sagacidade, de um arsenal tecnológico ou mesmo de poderes vindos do Outro Lado, cabe a você arriscar a sua vida para proteger o nosso mundo. O jogo tem tudo que seu grupo precisa para viver suas próprias missões no cenário criado por Cellbit e desenvolvido por um grupo de game designers premiados e veteranos, com mais de uma década de experiência publicando jogos de RPG.Agora, o destino do mundo está em suas mãos…',
     preco: 249.9,
     capa: 'https://m.media-amazon.com/images/I/81CJ-m4FlZL._AC_UF1000,1000_QL80_.jpg://covers.openlibrary.org/b/isbn/9781593279509-L.jpg',
     vendidos: 6767676,
@@ -52,7 +52,7 @@ export const produtos = [
     titulo: 'O hobbit',
     autor: 'J. R. R. Tolkien',
     resenha:
-      'Bilbo, o hobbit, entra em aventura épica liderada pelo grande Gandalf, o mago, Thorin e seus comparças anões para reconquistar a montanha.',
+      'Bilbo Bolseiro era um dos mais respeitáveis hobbits de todo o Condado até que, um dia, o mago Gandalf bate à sua porta. A partir de então, toda sua vida pacata e campestre soprando anéis de fumaça com seu belo cachimbo começa a mudar. Ele é convocado a participar de uma aventura por ninguém menos do que Thorin Escudo-de-Carvalho, um príncipe do poderoso povo dos Anãos. Esta jornada fará Bilbo, Gandalf e 13 anãos atravessarem a Terra-média, passando por inúmeros perigos, como os imensos trols, as Montanhas Nevoentas infestadas de gobelins ou a muito antiga e misteriosa Trevamata, até chegarem (se conseguirem) na Montanha Solitária. Lá está um incalculável tesouro, mas há um porém. Deitado em cima dele está Smaug, o Dourado, um dragão malicioso que... bem, você terá que ler para descobrir. Lançado em 1937, O Hobbit é um divisor de águas na literatura de fantasia mundial. Mais de 80 anos após a sua publicação, o livro que antecede os ocorridos em O Senhor dos Anéis continua arrebatando fãs de todas as idades, talvez pelo seu tom brincalhão com uma pitada de magia élfica, ou talvez porque J.R.R. Tolkien tenha escrito o melhor livro infantojuvenil de todos os tempos.',
     preco: 159.9,
     capa: 'https://m.media-amazon.com/images/I/91M9xPIf10L.jpg',
     vendidos: 69,

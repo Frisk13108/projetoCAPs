@@ -51,6 +51,11 @@ function atualizarQuantidade(produto) {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1, h2, h3, p  {
+    font-family: 'Raleway';
+}
 
 .remover {
   background-color: rgb(255, 255, 255);

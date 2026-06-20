@@ -25,7 +25,7 @@ function adcionarFavoritos(livro) {
 function adcionarCarrinho(livro) {
     existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
     if (existe == -1) {
-        produtosCarrinho.value.push({...livro, quantidade: 1})
+        produtosCarrinho.value.push({ ...livro, quantidade: 1 })
     } else {
         produtosCarrinho.value[existe].quantidade++
     }
@@ -63,23 +63,34 @@ function fecharPopup() {
 
     <div v-if="mostrarPopup" class="overlay">
         <div class="popup">
-            <h3>Título: {{ produtoSelecionado.titulo }}</h3>
-            <h4>Autor: {{ produtoSelecionado.autor }}</h4>
-            <p> <span>Resenha:</span> {{ produtoSelecionado.resenha }}</p>
+            <img :src="produtoSelecionado.capa" :alt="produtoSelecionado.titulo">
+            <div class="texto">
+                <h3>Título: {{ produtoSelecionado.titulo }}</h3>
+                <h4>Autor: {{ produtoSelecionado.autor }}</h4>
+                <p> <span>Resenha:</span> {{ produtoSelecionado.resenha }}</p>
 
-            <ButtonChild @clique="fecharPopup">Fechar</ButtonChild>
+                <ButtonChild class="fechar" @clique="fecharPopup">Fechar</ButtonChild>
+            </div>
         </div>
     </div>
 
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1,
+h2,
+h3,
+p {
+    font-family: 'Raleway';
+}
 
 ul {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1vw;
-    margin: 9vw 0 0 0;
+    margin: 9vw 0 1vw 0;
     list-style: none;
     align-items: center;
     place-items: center;
@@ -90,56 +101,83 @@ li img {
     height: 220px;
     object-fit: cover;
 }
+
 li h3 {
     color: white;
     font-size: 1vw;
 }
+
 li p.autor {
     color: rgb(121, 140, 141);
     font-size: 14px;
 }
+
 li p.preco {
     color: green;
     font-weight: bold;
     font-size: 1rem;
 }
-.favoritar{
+
+.favoritar {
     color: rgb(255, 0, 0);
-    background-color: transparent; 
+    background-color: transparent;
     border: 2px solid transparent;
     font-size: 20px;
-    cursor: pointer; 
+    cursor: pointer;
 }
+
 /* ============= modal ======================= */
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .popup {
-  background: rgb(91, 25, 139);
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 90%;
-  color: rgb(255, 255, 255);
+    display: flex;
+    gap: 20px;
+    background: #250050;
+    padding: 2vw 3vw;
+    border-radius: 12px;
+    width: 70%;
+    color: rgb(255, 255, 255);
 }
 
-.popup h3{
-  color: rgb(12, 240, 12);
+.popup h3 {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
-.popup h4{
-  color: rgb(175, 210, 17);
+
+.popup h4 {
+    color: darkgray;
+    font-size: 15px;
 }
-.popup span{
-  color: rgb(227, 170, 13);
+
+.popup span {
+    color: white;
+    font-weight: bold;
+}
+.popup p {
+    font-size: 15px;
+    width: 900px;
+}
+.fechar {
+    margin-top: 2vw;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+.popup img {
+    width: 250px;
+    height: 380px;
+    object-fit: cover;
 }
 
 </style>
