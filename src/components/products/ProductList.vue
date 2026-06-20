@@ -57,8 +57,7 @@ const livrosFiltrados = computed(() => {
     
     <div class="container">
        
-            <ProductCard v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" 
-            />
+            <ProductCard v-for="livro in livrosFiltrados" :key="livro.id" :titulo="livro.titulo" :preco="livro.preco" :resenha="livro.resenha" :autor="livro.autor" :capa="livro.capa" :id="livro.id" />
         
     </div>
 </section>

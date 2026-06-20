@@ -2,13 +2,15 @@
 import { RouterLink } from 'vue-router'
 import { produtosFavoritos } from '@/data/produtosFavoritos';
 import ButtonChild from './ButtonChild.vue';
+defineProps(['produto', 'quantidade']);
 
 function remover(produto) {
     const index = produtosFavoritos.value.findIndex(item => item.id === produto.id);
-    if (index >= 0) {
+    if (index !== -1) {
         produtosFavoritos.value.splice(index, 1);
     }
 }
+
 </script>
 
 <template>

@@ -42,10 +42,9 @@ function prosseguir() {
 
     </div>
 
-    <div class="carrinho">
+    <div class="carrinho" v-if="produtosCarrinho.length >= 1">
         <ul>
-            <CartItem v-for="produto in produtosCarrinho" :key="produto.id" :produto="produto"
-                v-show="produtosCarrinho.length >= 1">
+            <CartItem v-for="produto in produtosCarrinho" :key="produto.id" :produto="produto" v-show="produtosCarrinho.length >= 1">
             </CartItem>
         </ul>
         <div class="tudo" v-show="produtosCarrinho.length >= 1">

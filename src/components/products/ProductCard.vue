@@ -25,10 +25,12 @@ function adcionarFavoritos(livro) {
 function adcionarCarrinho(livro) {
     existe = produtosCarrinho.value.findIndex(p => p.titulo == livro.titulo);
     if (existe == -1) {
-        produtosCarrinho.value.push(livro)
+        produtosCarrinho.value.push({...livro, quantidade: 1})
     } else {
         produtosCarrinho.value[existe].quantidade++
     }
+
+    console.log(produtosCarrinho.value);
 }
 
 

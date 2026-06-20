@@ -39,13 +39,13 @@ const maiorPreco = computed(() => {
 
     <section class="coisas">
       <div>
-        Frete Grátis para SC
+          Frete Grátis para SC
       </div>
       <div>
-        LIvros Recomentados
+          ★ LIvros Recomentados
       </div>
       <div>
-        Mais Vendidos
+          Mais Vendidos
       </div>
 
     </section>
@@ -141,17 +141,19 @@ p {
 .coisas {
   display: flex;
   justify-content: space-around;
-  padding: 30px;
+  padding: 40px;
   border-top: 2px solid #250050;
-  border-bottom: 2px solid #250050
+  border-bottom: 2px solid #250050;
+  margin-bottom: 3vw;
 }
 
 .coisas div {
   flex: 1;
-  padding: 15px;
   font-size: 1vw;
   border-right: 2px solid #250050;
   text-align: center;
+  font-weight: bold;
+
 }
 
 /*MAIS VENBDIUDS8*/
@@ -167,7 +169,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 5vw;
-  margin: 10vw 0 0 0;
+  margin-top: 4vw;
   list-style: none;
 }
 
@@ -175,7 +177,6 @@ li h3 {
   color: white;
   font-size: 1vw;
 }
-
 li p.autor {
   color: rgb(121, 140, 141);
   font-size: 14px;
@@ -210,11 +211,21 @@ footer {
 }
 
 footer nav {
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(1, 1fr);
   list-style: none;
   color: black;
   gap: 1vw;
+}
+footer p {
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.router-link-active {
+  font-weight: bold;
 }
 
 </style>

@@ -8,7 +8,7 @@
 
 
 
-defineProps(['produto']);
+defineProps(['produto', 'quantidade']);
 
 function remover(produto) {
   const posicao = produtosCarrinho.value.findIndex(item => item.id === produto.id);
