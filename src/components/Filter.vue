@@ -19,7 +19,7 @@ const categoriaSelecionada = ref('')
       <h2>Categorias</h2>
 
       <select v-model="categoriaSelecionada">
-        <option value="">Toodas</option>
+        <option value="">Todas</option>
         <option v-for= "categoria in categorias" :key="categoria" :value="categoria">
           {{ categoria }}
         </option>

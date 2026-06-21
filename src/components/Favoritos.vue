@@ -3,6 +3,7 @@ import { RouterLink } from 'vue-router'
 import { produtosFavoritos } from '@/data/produtosFavoritos';
 import ButtonChild from './ButtonChild.vue';
 defineProps(['produto', 'quantidade']);
+import { formataPreco } from '@/utils/currencyUtils.js';
 
 function remover(produto) {
     const index = produtosFavoritos.value.findIndex(item => item.id === produto.id);
@@ -33,7 +34,7 @@ function remover(produto) {
                     <div class="texto">
                         <h3>{{ produto.titulo }}</h3>
                         <h4>{{ produto.autor }}</h4>
-                        <p class="preco">{{ produto.preco }}</p>
+                        <p class="preco">{{ formataPreco(produto.preco) }}</p>
                         <ButtonChild class="removerFavoritos" @clique="remover(produto)">Remover</ButtonChild>
                     </div>
                 </div>
