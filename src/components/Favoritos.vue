@@ -59,9 +59,13 @@ ul {
 }
 
 .removerFavoritos {
-    border: none;
-}
+    border: solid 2px white;
+    padding: 10px 30px;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
 
+}
 
 
 div.padrao {
